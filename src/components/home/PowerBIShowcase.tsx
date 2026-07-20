@@ -1,105 +1,69 @@
+import dashboardIllustration from "@/assets/dashboard-illustration.png";
+
+const bullets = [
+  {
+    title: "Real-time KPIs",
+    body: "Mortality, FCR, ADG, uniformity and environment metrics — refreshed continuously across every farm.",
+  },
+  {
+    title: "Drill-down analytics",
+    body: "From group to farm to house to sensor. Investigate anomalies without leaving the dashboard.",
+  },
+  {
+    title: "Executive & operator reports",
+    body: "Automated Power BI reports scheduled to your team, exportable to PDF, Excel or embedded in your BI stack.",
+  },
+];
+
 export function PowerBIShowcase() {
-  const bars = [60, 65, 72, 80, 74, 92, 85];
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
-    <section className="bg-surface px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand">
-            Power BI · Executive Analytics
-          </p>
-          <h2 className="mb-4 text-4xl font-bold">
-            From data to decisions in seconds.
+    <section id="power-bi" className="relative overflow-hidden bg-brand-deep py-24 text-white">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-40"
+        style={{ backgroundImage: "var(--gradient-glow)" }}
+      />
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-highlight">
+            Powered by Microsoft Power BI
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+            The command center for every farm you run.
           </h2>
-          <p className="text-foreground/60">
-            Enterprise-grade Power BI dashboards for total visibility, from farm
-            KPIs down to individual house events.
+          <p className="mt-4 text-base leading-relaxed text-white/75">
+            Every data point Smart Poultry captures — IoT, vision, cycle events, financials —
+            flows into a native Power BI layer built for poultry operations.
           </p>
-        </div>
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="rounded-xl border border-border bg-background p-6 shadow-sm lg:col-span-2">
-            <div className="mb-8 flex items-center justify-between">
-              <p className="font-bold">Environmental Trend Analysis</p>
-              <div className="flex gap-4 text-xs font-medium">
-                <span className="flex items-center gap-2">
-                  <div className="size-2 rounded-full bg-brand" /> Temp (24.6°C)
-                </span>
-                <span className="flex items-center gap-2">
-                  <div className="size-2 rounded-full bg-highlight" /> Humidity (62%)
-                </span>
-              </div>
-            </div>
-            <div className="flex h-64 items-end gap-2">
-              {bars.map((h, i) => (
-                <div key={i} className="flex h-full w-full flex-col justify-end gap-1">
-                  <div
-                    className={`w-full ${i === 5 ? "bg-brand" : "bg-brand/25"}`}
-                    style={{ height: `${h}%` }}
-                  />
-                  <span className="text-center font-mono text-[9px] text-foreground/40">
-                    {days[i]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-6">
-            <div className="rounded-xl border border-border bg-background p-6 shadow-sm">
-              <p className="mb-4 text-xs font-bold uppercase text-brand">
-                Gas Concentration
-              </p>
-              <p className="mb-1 text-4xl font-bold">12 ppm</p>
-              <p className="text-xs text-foreground/60">
-                Ammonia levels — optimal range
-              </p>
-              <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-brand/10">
-                <div className="h-full w-[24%] bg-brand" />
-              </div>
-            </div>
-            <div className="rounded-xl border border-border bg-background p-6 shadow-sm">
-              <p className="mb-4 text-xs font-bold uppercase text-brand">
-                Growth Trajectory
-              </p>
-              <div className="flex items-center gap-5">
-                <div className="relative size-16">
-                  <svg viewBox="0 0 36 36" className="size-16 -rotate-90">
-                    <circle
-                      cx="18"
-                      cy="18"
-                      r="15"
-                      fill="none"
-                      stroke="var(--brand-soft)"
-                      strokeWidth="4"
-                    />
-                    <circle
-                      cx="18"
-                      cy="18"
-                      r="15"
-                      fill="none"
-                      stroke="var(--highlight)"
-                      strokeWidth="4"
-                      strokeDasharray="94.2"
-                      strokeDashoffset="18"
-                      strokeLinecap="round"
-                    />
+          <ul className="mt-8 space-y-6">
+            {bullets.map((b) => (
+              <li key={b.title} className="flex gap-4">
+                <span className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-highlight text-brand-deep">
+                  <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M4 11l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
+                </span>
                 <div>
-                  <p className="text-3xl font-bold">+4.2%</p>
-                  <p className="text-xs text-foreground/60">Ahead of target</p>
+                  <div className="text-base font-semibold">{b.title}</div>
+                  <p className="mt-1 text-sm leading-relaxed text-white/70">{b.body}</p>
                 </div>
-              </div>
-            </div>
-            <div className="rounded-xl border border-border bg-background p-6 shadow-sm">
-              <p className="mb-4 text-xs font-bold uppercase text-brand">
-                Predictive AI
-              </p>
-              <p className="mb-1 text-3xl font-bold">Day 38</p>
-              <p className="text-xs text-foreground/60">
-                Optimal selling date forecast
-              </p>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="relative">
+          <div
+            aria-hidden
+            className="absolute inset-0 -m-6 rounded-[3rem] bg-highlight/10 blur-3xl"
+          />
+          <img
+            src={dashboardIllustration}
+            alt="Power BI style analytics dashboard for poultry operations"
+            width={1408}
+            height={1008}
+            loading="lazy"
+            className="relative w-full drop-shadow-2xl"
+          />
         </div>
       </div>
     </section>

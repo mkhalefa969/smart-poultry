@@ -1,14 +1,30 @@
+const partners = [
+  "Alareeb ICT",
+  "Al Watania",
+  "Almarai",
+  "Sadia",
+  "PoultryCo",
+  "AgriTech Group",
+];
+
 export function TrustedBy() {
-  const names = ["AL-WATANIA", "SADCO", "POULTRY CO.", "GLOBAL FOODS", "AGRI-TECH INT"];
   return (
-    <div className="border-y border-border py-8">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 opacity-50">
-        {names.map((n) => (
-          <span key={n} className="text-sm font-bold tracking-widest text-foreground">
-            {n}
-          </span>
-        ))}
+    <section className="border-b border-border bg-background py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          Trusted by integrators & producers across the region
+        </p>
+        <div className="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-6">
+          {partners.map((p) => (
+            <div
+              key={p}
+              className="flex items-center justify-center text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground/70 transition-colors hover:text-brand"
+            >
+              {p}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

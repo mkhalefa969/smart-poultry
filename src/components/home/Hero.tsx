@@ -1,143 +1,100 @@
+import heroIllustration from "@/assets/hero-illustration.png";
+
 export function Hero() {
   return (
-    <section className="relative overflow-hidden px-6 pb-16 pt-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12">
-        <div className="animate-fade-up lg:col-span-5">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-highlight opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-highlight" />
+    <section id="top" className="relative overflow-hidden bg-gradient-hero pt-24 pb-32 lg:pt-32 lg:pb-44">
+      {/* Ambient glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-70"
+        style={{ backgroundImage: "var(--gradient-glow)" }}
+      />
+      {/* Grain overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.6'/></svg>\")",
+        }}
+      />
+
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
+        <div className="animate-fade-up lg:col-span-6 lg:pr-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-highlight" />
+            Enterprise SaaS · Built by Alareeb ICT
+          </span>
+          <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Turn every poultry house into an{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-highlight">intelligent</span>
+              <span
+                aria-hidden
+                className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded bg-highlight/20"
+              />
             </span>
-            An Alareeb ICT platform
-          </div>
-          <h1 className="mb-6 text-balance text-5xl font-bold leading-[1.05] tracking-tight lg:text-6xl">
-            The AI Operating System for{" "}
-            <span className="text-brand">Modern Poultry Farms</span>
+            , connected operation.
           </h1>
-          <p className="mb-8 max-w-[46ch] text-pretty text-lg text-foreground/70">
-            Unify IoT sensors, computer vision, and predictive analytics into a
-            single command center. Precision poultry at enterprise scale.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
+            Smart Poultry unifies IoT sensors, computer vision, AI insights and Power BI
+            analytics into one operating system — so your farms run with precision, not
+            guesswork.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="rounded-sm bg-brand px-8 py-4 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5">
-              Request Demo
-            </button>
-            <button className="rounded-sm border border-brand px-8 py-4 text-sm font-semibold text-brand transition-colors hover:bg-brand-soft">
-              Explore Platform
-            </button>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#cta"
+              className="inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3.5 text-sm font-semibold text-brand-deep shadow-elevated transition-transform hover:scale-[1.03]"
+            >
+              Request a Demo
+              <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 10h10M11 6l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <a
+              href="#modules"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10"
+            >
+              Explore the platform
+            </a>
           </div>
+
+          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-white/15 pt-8 max-w-lg">
+            {[
+              { k: "Farms managed", v: "120+" },
+              { k: "IoT data points / day", v: "8.4M" },
+              { k: "Mortality reduction", v: "-27%" },
+            ].map((s) => (
+              <div key={s.k}>
+                <dt className="text-xs uppercase tracking-wider text-white/60">{s.k}</dt>
+                <dd className="mt-1 text-2xl font-bold text-white">{s.v}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        <div className="relative animate-fade-up lg:col-span-7 [animation-delay:200ms]">
-          <DashboardMockup />
+        <div className="relative lg:col-span-6">
+          <div className="absolute inset-0 -m-8 rounded-[3rem] bg-white/5 blur-2xl" aria-hidden />
+          <img
+            src={heroIllustration}
+            alt="Smart Poultry platform illustration showing a connected poultry house with sensors, a dashboard tablet, LoRaWAN gateway and analytics cloud"
+            width={1408}
+            height={1200}
+            className="relative w-full animate-float drop-shadow-2xl"
+          />
         </div>
       </div>
+
+      {/* Curved bottom transition */}
+      <svg
+        className="absolute inset-x-0 bottom-0 w-full text-background"
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <path fill="currentColor" d="M0,80 L0,32 C240,80 480,0 720,16 C960,32 1200,80 1440,40 L1440,80 Z" />
+      </svg>
     </section>
-  );
-}
-
-function DashboardMockup() {
-  const kpis = [
-    { label: "FCR", value: "1.62", meta: "82% of target", accent: "brand" },
-    {
-      label: "Mortality",
-      value: "2.1%",
-      meta: "+0.2% vs target",
-      accent: "destructive",
-    },
-    { label: "Avg Weight", value: "2.34 kg", meta: "On schedule", accent: "brand" },
-  ];
-  return (
-    <div className="rounded-xl border border-border bg-surface p-4 shadow-2xl ring-1 ring-black/5">
-      <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
-        <div className="flex gap-2">
-          <div className="size-3 rounded-full bg-destructive/70" />
-          <div className="size-3 rounded-full bg-highlight" />
-          <div className="size-3 rounded-full bg-brand" />
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-brand/60">
-          Live System Feed // House 04
-        </span>
-      </div>
-
-      <div className="mb-4 grid grid-cols-3 gap-3">
-        {kpis.map((k) => (
-          <div
-            key={k.label}
-            className="rounded border border-border bg-background p-3"
-          >
-            <p className="mb-1 text-[10px] font-bold uppercase text-foreground/60">
-              {k.label}
-            </p>
-            <p
-              className={`text-2xl font-bold ${k.accent === "destructive" ? "text-destructive" : "text-foreground"}`}
-            >
-              {k.value}
-            </p>
-            <p
-              className={`mt-1 text-[10px] font-medium ${k.accent === "destructive" ? "text-destructive" : "text-brand"}`}
-            >
-              {k.meta}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="relative overflow-hidden rounded border border-border bg-background p-4">
-        {/* Product surface: sparkline + house diagram */}
-        <div className="mb-3 flex items-center justify-between">
-          <p className="text-xs font-semibold text-foreground/70">
-            House 04 · Environmental telemetry (24h)
-          </p>
-          <p className="font-mono text-[10px] uppercase tracking-widest text-foreground/40">
-            24.6°C · 62% RH · 12 ppm NH₃
-          </p>
-        </div>
-        <svg viewBox="0 0 400 120" className="h-32 w-full">
-          <defs>
-            <linearGradient id="sp-line" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="var(--brand)" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="var(--brand)" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,90 C40,80 60,60 100,65 C140,70 160,40 200,45 C240,50 260,30 300,25 C340,20 360,45 400,35 L400,120 L0,120 Z"
-            fill="url(#sp-line)"
-          />
-          <path
-            d="M0,90 C40,80 60,60 100,65 C140,70 160,40 200,45 C240,50 260,30 300,25 C340,20 360,45 400,35"
-            fill="none"
-            stroke="var(--brand)"
-            strokeWidth="2"
-          />
-        </svg>
-        <div className="mt-3 grid grid-cols-4 gap-2">
-          {["S1", "S2", "S3", "S4"].map((s, i) => (
-            <div
-              key={s}
-              className="flex items-center justify-between rounded bg-surface px-2 py-1.5"
-            >
-              <span className="font-mono text-[9px] text-foreground/50">{s}</span>
-              <span className="size-1.5 rounded-full bg-brand" style={{ opacity: 0.4 + i * 0.15 }} />
-            </div>
-          ))}
-        </div>
-
-        {/* CV Chip Overlay */}
-        <div className="absolute right-4 top-4 rounded border border-white/10 bg-brand-deep/95 p-2 text-primary-foreground backdrop-blur">
-          <div className="mb-1 flex items-center gap-2">
-            <div className="size-1.5 animate-pulse rounded-full bg-highlight" />
-            <span className="text-[9px] font-bold uppercase tracking-tighter">
-              CV Analysis: Active
-            </span>
-          </div>
-          <p className="text-[10px] leading-tight opacity-80">
-            Bird Distribution: 94% Uniform
-            <br />
-            Activity Index: Optimal
-          </p>
-        </div>
-      </div>
-    </div>
   );
 }

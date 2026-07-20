@@ -1,39 +1,117 @@
-const MODULES = [
-  { name: "Farm Management", desc: "Multi-site resource allocation and geo-spatial tracking." },
-  { name: "House Monitoring", desc: "Real-time status for every building in your network." },
-  { name: "Flock Health", desc: "Predictive health modeling and vaccination tracking." },
-  { name: "Environmental", desc: "Temperature, humidity and ammonia automated control." },
-  { name: "Feeding Systems", desc: "Automated silo tracking and distribution logic." },
-  { name: "Water Control", desc: "Consumption monitoring and water-to-feed ratio." },
-  { name: "AI Analytics", desc: "Proprietary models for cycle performance optimization." },
-  { name: "Computer Vision", desc: "Live bird counting and behavior anomaly detection." },
-  { name: "Power BI", desc: "Direct pipeline into your Microsoft enterprise stack." },
-  { name: "Alerts & Alarms", desc: "Mission-critical notifications via SMS and push." },
-  { name: "Cycle Planning", desc: "End-to-end placement and harvest scheduling." },
-  { name: "Smart Reporting", desc: "Regulatory-ready exports and PDF snapshots." },
+const modules = [
+  {
+    title: "IoT Monitoring",
+    desc: "Real-time telemetry — temperature, humidity, ammonia, CO₂, water and feed — from every house.",
+    icon: (
+      <path d="M4 12a8 8 0 0 1 16 0M7 12a5 5 0 0 1 10 0M10 12a2 2 0 1 1 4 0M12 20v-4" strokeLinecap="round" />
+    ),
+  },
+  {
+    title: "Computer Vision",
+    desc: "AI cameras count birds, detect lameness and score flock behavior around the clock.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="3.2" />
+        <path d="M2 12c2.5-5 6-7 10-7s7.5 2 10 7c-2.5 5-6 7-10 7s-7.5-2-10-7Z" strokeLinecap="round" strokeLinejoin="round" />
+      </>
+    ),
+  },
+  {
+    title: "AI Insights",
+    desc: "Predictive models flag mortality risk, feed waste and environmental drift hours before it matters.",
+    icon: (
+      <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" strokeLinecap="round" />
+    ),
+  },
+  {
+    title: "Operational Cycle",
+    desc: "Manage placement, feed programs, vaccination and harvest as one connected cycle timeline.",
+    icon: (
+      <path d="M12 3v4M12 21v-4M3 12h4M21 12h-4M6.5 6.5l2.8 2.8M17.5 17.5l-2.8-2.8M6.5 17.5l2.8-2.8M17.5 6.5l-2.8 2.8" strokeLinecap="round" />
+    ),
+  },
+  {
+    title: "Farm Operations",
+    desc: "Field workflows, task assignments and mobile reporting for house managers and vets.",
+    icon: (
+      <path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-6h4v6" strokeLinejoin="round" />
+    ),
+  },
+  {
+    title: "Smart Alerts",
+    desc: "Multi-channel alerts (SMS, email, in-app) with escalation rules and severity tiers.",
+    icon: (
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8ZM10 21a2 2 0 0 0 4 0" strokeLinecap="round" strokeLinejoin="round" />
+    ),
+  },
+];
+
+const chips = [
+  "Power BI Analytics",
+  "Weighing",
+  "Water & Feed",
+  "Health Records",
+  "Environment Control",
+  "Access Control",
+  "Biosecurity",
+  "Energy",
+  "Reports Studio",
 ];
 
 export function ModulesGrid() {
   return (
-    <section className="bg-brand-deep px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16">
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-widest text-highlight">
-            Integrated Ecosystem
+    <section id="modules" className="relative bg-muted/40 py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+            Platform modules
+          </span>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            One platform. Every layer of your operation.
           </h2>
-          <h3 className="text-4xl font-bold text-primary-foreground">
-            Modular power. Unified control.
-          </h3>
+          <p className="mt-4 text-base text-muted-foreground">
+            Six integrated pillars — plus the tools you need to run day-to-day work.
+          </p>
         </div>
-        <div className="grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:grid-cols-3 lg:grid-cols-4">
-          {MODULES.map((m) => (
-            <div
-              key={m.name}
-              className="bg-brand-deep p-8 transition-colors hover:bg-brand/20"
+
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {modules.map((m) => (
+            <article
+              key={m.title}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-elevated"
             >
-              <p className="mb-2 font-bold text-primary-foreground">{m.name}</p>
-              <p className="text-xs text-primary-foreground/60">{m.desc}</p>
-            </div>
+              <div
+                aria-hidden
+                className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand/5 transition-transform group-hover:scale-125"
+              />
+              <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-brand text-highlight">
+                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  {m.icon}
+                </svg>
+              </div>
+              <h3 className="relative mt-5 text-lg font-semibold text-foreground">{m.title}</h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
+              <span className="relative mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand">
+                Learn more
+                <svg viewBox="0 0 20 20" className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 10h10M11 6l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+          <span className="text-xs uppercase tracking-widest text-muted-foreground">
+            plus
+          </span>
+          {chips.map((c) => (
+            <span
+              key={c}
+              className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground/70"
+            >
+              {c}
+            </span>
           ))}
         </div>
       </div>

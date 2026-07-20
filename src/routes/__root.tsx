@@ -95,11 +95,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Unify IoT, computer vision, predictive AI and Power BI into one operating system for enterprise poultry producers.",
+          "Smart Poultry by Alareeb ICT is an enterprise SaaS platform that unifies IoT, computer vision, AI analytics and Power BI to help modern poultry farms operate with precision.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Smart Poultry" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Smart Poultry — The AI Operating System for Modern Poultry Farms" },
+      { name: "twitter:description", content: "Smart Poultry by Alareeb ICT is an enterprise SaaS platform that unifies IoT, computer vision, AI analytics and Power BI to help modern poultry farms operate with precision." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dcb2329c-1a93-4b38-a474-f336dfa9536a" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/dcb2329c-1a93-4b38-a474-f336dfa9536a" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

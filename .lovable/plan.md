@@ -1,64 +1,79 @@
-## Homepage build plan — Smart Poultry
 
-Selected direction: **Living dashboard** (v3). It's the most brand-aligned option — uses the official Smart Poultry palette (Green #00665D, deep Green #003D38, Yellow #FEC309 as accent only) and Anuphan typography, and delivers the full section set the product context calls for. The other two directions either drifted off-brand (v1 used teal + Syne, wrong palette and typography) or covered fewer sections.
+## Benchmark: what PoultrySync does well
 
-### Design foundation
+Looking at poultrysync.com, the qualities that make it feel premium and credible:
 
-Update `src/styles.css`:
-- Add Google Fonts `@import` at the very top (before `@theme`) for Anuphan 400/500/600/700.
-- Replace the placeholder oklch palette with Smart Poultry brand tokens converted to oklch:
-  - `--brand` (Green #00665D), `--brand-deep` (#003D38), `--accent` (Yellow #FEC309)
-  - Neutrals: white background, near-black foreground, soft surface for section bands, subtle border.
-  - Wire `--primary` = brand, `--primary-foreground` = white, `--secondary`/`--muted`/`--accent` shadcn tokens to match.
-- Set `--font-sans` to Anuphan with a system-sans fallback, register in `@theme` so Tailwind's `font-sans` picks it up.
-- Apply Anuphan to `body` in `@layer base` so every component inherits it.
+1. **Bold gradient hero** — deep green → teal → soft blue diagonal, with a large custom isometric illustration (rooster + dashboard monitors + gears) on the left and a short, benefit-led headline on the right.
+2. **Single, confident CTA** — "Request Demo" repeated in nav and hero (green pill on white / white pill on green).
+3. **Clear top nav IA** — Home · Solutions · Products · Add‑ons · Services · Partners · عربي · Request Demo.
+4. **Generous whitespace, oversized type** — headline is big, line-height loose, body copy short.
+5. **Custom illustrations, not stock UI mockups** — every section has a bespoke isometric scene (chickens, farms, sensors, dashboards) instead of generic device frames.
+6. **Trusted-by strip** right under the hero for instant credibility.
+7. **Section rhythm** — alternating light/dark bands, each with illustration on one side and a 2–4 bullet feature list on the other.
 
-### Route + shell
+## What our current homepage is missing
 
-Update `src/routes/__root.tsx`:
-- Real head metadata: title "Smart Poultry — The AI Operating System for Modern Poultry Farms", matching description, og:title/description, og:type=website, twitter:card=summary_large_image. No og:image at root (per SEO rules).
-- Add `<link rel="preconnect">` for Google Fonts.
-- Leave shell/Outlet/Providers untouched.
+- No hero illustration — it's a CSS "dashboard" mock that reads as flat and generic.
+- Nav lacks the product-led IA (Solutions/Products/Add-ons/Services/Partners).
+- No trusted-by strip, no bespoke section illustrations, weak visual hierarchy between sections.
+- Modules grid is 12 tiny cards — too dense, no storytelling.
+- Green is applied as flat blocks, not as the signature gradient that gives PoultrySync its identity.
 
-Replace `src/routes/index.tsx` (in place — no new route, per the placeholder rule) with the homepage. Add page-specific `head()` with self-referential canonical/og:url.
+## Redesign plan (homepage only)
 
-### Homepage composition (`src/routes/index.tsx` + section components)
+### 1. Brand tokens (styles.css)
+- Add a signature gradient: `--gradient-brand: linear-gradient(135deg, #00665D 0%, #0A8C7E 55%, #4FB3A9 100%)` plus a soft-blue tail for hero backgrounds.
+- Add depth tokens: elevated card shadow, soft outer glow for illustrations, rounded-3xl radius for hero art frames.
+- Keep Anuphan; tighten heading scale (H1 clamp 40→72px), body 16→18px, lifted line-height.
 
-Build sections in this order, matching the chosen prototype's DOM/composition:
+### 2. New top navigation
+- Slim white nav on gradient hero, dark nav on scroll.
+- Items: **Solutions · Modules · Power BI · Connectivity · Partners · العربية**, plus yellow "Request Demo" pill (Smart Poultry uses green + yellow, so demo CTA stays yellow to differentiate from PoultrySync).
 
-1. **Sticky top nav** — logo mark, links (Platform, Modules, AI & Vision, Power BI, Industries), EN language chip, yellow "Request Demo" CTA.
-2. **Hero** — H1 "The AI Operating System for Modern Poultry Farms" (brand-green on "Modern Poultry Farms"), subhead, two CTAs (Explore Platform / Whitepaper), and a layered dashboard visual: window chrome, 3 KPI tiles (FCR 1.62, Mortality 2.1%, Avg Weight 2.34 kg), an inner product surface with a computer-vision status chip overlay ("CV Analysis: Active", bird distribution 94% uniform).
-3. **Trusted-by strip** — 5 wordmarks in muted mono style.
-4. **Problem vs Solution** — two-column split: left lists industry challenges with red ✕ tiles; right is a brand-green panel with yellow ✓ tiles listing Smart Poultry answers.
-5. **Modules grid** — deep-green section, 12 modules in a 4-column bordered grid: Farm, House, Flock, Environmental, Feeding, Water, AI Analytics, Computer Vision, Power BI, Alerts, Cycle, Reports.
-6. **Power BI showcase** — soft surface band, headline "From data to decisions in seconds", 2/3 + 1/3 layout: large bar chart card (Environmental Trend Analysis with Temp 24.6°C and Humidity 62% legend) plus two side cards (Ammonia 12 ppm; Growth trajectory +4.2%).
-7. **Connectivity / LoRaWAN** — copy on the left with a Sensors→Gateway→Cloud AI flow; on the right a circular gateway diagram with animated dashed orbits and node dots.
-8. **Outcomes band** — brand-green background, 4 accent-yellow metrics: Feed Waste ↓14%, Mortality ↓0.8%, FCR ↑5.2%, Visibility 100%.
-9. **Final CTA** — centered "Ready to operate your farms with AI?" with yellow demo button.
-10. **Footer** — brand line + Alareeb ICT credit, Platform and Company link columns, legal row.
+### 3. Hero (rebuild)
+- Full-bleed gradient background (brand green → teal → soft aqua) with subtle grain.
+- Left: custom **isometric hero illustration** generated as a single asset — poultry house with sensors, tablet showing dashboard, small flock, LoRaWAN waves. Framed with soft shadow, floats slightly.
+- Right: headline "Turn every poultry house into an intelligent, connected operation." · one-line subhead · two CTAs (yellow "Request a Demo", ghost "Watch overview").
+- Bottom of hero: thin curved white transition (matches PoultrySync's swoosh).
 
-Split into focused components under `src/components/home/`:
-`SiteHeader`, `Hero`, `TrustedBy`, `ProblemSolution`, `ModulesGrid`, `PowerBIShowcase`, `Connectivity`, `Outcomes`, `FinalCTA`, `SiteFooter`. `index.tsx` composes them.
+### 4. Trusted-by strip
+- Neutral band right after hero, 5–6 partner/customer logos in muted grey.
 
-Use only semantic tokens (`bg-primary`, `bg-accent`, `text-foreground`, plus new `brand`, `brand-deep`, `accent` tokens registered in `@theme`). No hardcoded hex in JSX.
+### 5. Problem → Solution split
+- Two-column band: left = "Traditional farms lose margin to blind spots" with 3 pain bullets; right = "Smart Poultry gives you one intelligent layer" with 3 outcome bullets. Small supporting icons in brand green.
 
-### Motion (CSS only, restrained)
+### 6. Core Modules — redesigned
+- Replace the 12-tile wall with a **featured 6-card grid** (IoT Monitoring, Computer Vision, AI Insights, Operational Cycle, Farm Ops, Smart Alerts) using large icon + short paragraph + "Learn more" link.
+- Below: compact chip row listing the other modules ("+ Power BI Analytics, Weighing, Water & Feed, Health, Environment, Access…").
 
-- Hero fades/rises on mount via a small `@keyframes fade-up` utility.
-- Computer-vision status dot: `animate-pulse`.
-- LoRaWAN orbits: slow `animate-[spin_60s_linear_infinite]` on dashed rings.
-- No parallax, no heavy scroll effects.
+### 7. Power BI showcase
+- Dark band. Left: real-looking dashboard screenshot (illustrated mock — production/mortality/FCR tiles). Right: 3-bullet value list (real-time KPIs, drill-down, exportable reports).
 
-### Imagery
+### 8. Connectivity diagram
+- Light band with a cleaner LoRaWAN illustration: sensors → gateway → cloud → dashboard, with subtle animated pulse dots.
 
-The prototype uses one `data-lov-image-placeholder` inside the hero dashboard for a "product visual surface." For the first build I'll render it as a lightweight SVG/CSS composition (mini charts, a house diagram, sensor pills) instead of generating a raster image — keeps the hero crisp, on-brand, and avoids stock-y AI photography. We can swap in a generated image later if you want.
+### 9. Outcomes / impact
+- 4 stat cards on gradient background: mortality ↓, FCR ↑, labor hours saved, alerts response time.
 
-### Out of scope for this turn
+### 10. Final CTA band
+- Gradient again, centered: "Ready to modernize your farms?" + yellow "Request a Demo" + secondary "Talk to sales".
 
-- No backend, Cloud, or forms wiring (the demo CTA is a link placeholder for now).
-- No additional pages — future turns will design Platform, Modules, Power BI, Industries, Company, etc., each as its own TanStack route with its own `head()`.
-- No i18n implementation — the EN chip is visual only for now.
+### 11. Footer
+- Multi-column: Product, Company, Resources, Contact + Alareeb ICT attribution + language toggle.
 
-### Verification
+## Assets to generate
+- 1 hero isometric illustration (poultry house + dashboard + sensors + flock) — brand green/yellow palette, on transparent background.
+- 1 Power BI dashboard mock illustration.
+- 6 module icons (line + brand green, consistent stroke).
+- 5–6 grayscale partner logo placeholders (or use text).
 
-After building: run a Playwright screenshot of `http://localhost:8080/` at 1280×1800 and confirm the hero, modules grid, Power BI showcase, and outcomes band render correctly on brand.
+## Out of scope
+- No backend, no new routes, no auth. Homepage `/` only.
+- No changes to routing, SEO metadata structure (only copy tweaks in existing head()).
+
+## Technical notes
+- All work stays inside `src/routes/index.tsx`, `src/routes/__root.tsx` (nav/head), `src/components/home/*`, `src/styles.css`, and new files under `src/assets/`.
+- Gradient + shadow + radius exposed as semantic tokens in `styles.css`; no hardcoded hex in components.
+- Generated illustrations imported as ES6 image imports.
+
+Approve and I'll build it.

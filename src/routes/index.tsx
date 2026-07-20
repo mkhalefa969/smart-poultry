@@ -1,24 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/home/SiteHeader";
+import { Hero } from "@/components/home/Hero";
+import { TrustedBy } from "@/components/home/TrustedBy";
+import { ProblemSolution } from "@/components/home/ProblemSolution";
+import { ModulesGrid } from "@/components/home/ModulesGrid";
+import { PowerBIShowcase } from "@/components/home/PowerBIShowcase";
+import { Connectivity } from "@/components/home/Connectivity";
+import { Outcomes } from "@/components/home/Outcomes";
+import { FinalCTA } from "@/components/home/FinalCTA";
+import { SiteFooter } from "@/components/home/SiteFooter";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-brand selection:text-primary-foreground">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <TrustedBy />
+        <ProblemSolution />
+        <ModulesGrid />
+        <PowerBIShowcase />
+        <Connectivity />
+        <Outcomes />
+        <FinalCTA />
+      </main>
+      <SiteFooter />
     </div>
   );
 }

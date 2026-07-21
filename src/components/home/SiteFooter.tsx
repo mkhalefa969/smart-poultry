@@ -1,23 +1,15 @@
-const cols = [
-  {
-    title: "Platform",
-    links: ["IoT Monitoring", "Computer Vision", "AI Insights", "Power BI", "Connectivity"],
-  },
-  {
-    title: "Solutions",
-    links: ["Broiler Farms", "Layer Farms", "Breeders", "Integrators"],
-  },
-  {
-    title: "Company",
-    links: ["About Alareeb ICT", "Careers", "Partners", "Contact"],
-  },
-  {
-    title: "Resources",
-    links: ["Documentation", "Case Studies", "Support", "Security"],
-  },
-];
+import { useTranslation } from "react-i18next";
+
+const columnKeys = ["platform", "solutions", "company", "resources"] as const;
+const linkKeysByColumn = {
+  platform: ["iot", "cv", "ai", "bi", "connectivity"],
+  solutions: ["broiler", "layer", "breeders", "integrators"],
+  company: ["about", "careers", "partners", "contact"],
+  resources: ["docs", "cases", "support", "security"],
+} as const;
 
 export function SiteFooter() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-brand-deep py-16 text-white/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -30,27 +22,26 @@ export function SiteFooter() {
                 </svg>
               </span>
               <div className="leading-tight text-white">
-                <div className="text-sm font-semibold">Smart Poultry</div>
+                <div className="text-sm font-semibold">{t("footer.brand")}</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/60">
-                  by Alareeb ICT
+                  {t("footer.brandSub")}
                 </div>
               </div>
             </div>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
-              The AI operating system for modern poultry farms — IoT, computer vision,
-              predictive analytics and Power BI, unified.
+              {t("footer.tagline")}
             </p>
           </div>
-          {cols.map((c) => (
-            <div key={c.title}>
+          {columnKeys.map((col) => (
+            <div key={col}>
               <div className="text-xs font-semibold uppercase tracking-widest text-white">
-                {c.title}
+                {t(`footer.columns.${col}.title`)}
               </div>
               <ul className="mt-4 space-y-2.5">
-                {c.links.map((l) => (
-                  <li key={l}>
+                {linkKeysByColumn[col].map((lk) => (
+                  <li key={lk}>
                     <a href="#" className="text-sm text-white/70 transition-colors hover:text-highlight">
-                      {l}
+                      {t(`footer.columns.${col}.links.${lk}`)}
                     </a>
                   </li>
                 ))}
@@ -60,12 +51,12 @@ export function SiteFooter() {
         </div>
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-xs text-white/50">
-            © {new Date().getFullYear()} Alareeb ICT. All rights reserved.
+            {t("footer.rights", { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-5 text-xs text-white/50">
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Terms</a>
-            <a href="#" className="hover:text-white">Security</a>
+            <a href="#" className="hover:text-white">{t("footer.privacy")}</a>
+            <a href="#" className="hover:text-white">{t("footer.terms")}</a>
+            <a href="#" className="hover:text-white">{t("footer.security")}</a>
           </div>
         </div>
       </div>

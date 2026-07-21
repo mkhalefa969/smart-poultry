@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/logo.png.png";
-const nav = [
-  { label: "Home", href: "#top" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Case Studies", href: "#casestudies" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact Us", href: "#contact" },
-];
+import { useLanguage } from "@/i18n/useLanguage";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useTranslation();
+  const { current, setLanguage } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -17,6 +14,14 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const nav = [
+    { label: t("header.home"), href: "#top" },
+    { label: t("header.solutions"), href: "#solutions" },
+    { label: t("header.caseStudies"), href: "#casestudies" },
+    { label: t("header.pricing"), href: "#pricing" },
+    { label: t("header.contact"), href: "#contact" },
+  ];
 
   return (
     <header
@@ -27,7 +32,6 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
         {/* Logo */}
         <a href="#top" className="flex items-center">
           <img
@@ -56,21 +60,47 @@ export function SiteHeader() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <button
-            className={`hidden text-sm font-medium sm:inline-flex transition-colors ${
-              scrolled
-                ? "text-foreground/70 hover:text-brand"
-                : "text-white/80 hover:text-white"
+          <div
+            className={`hidden text-sm font-medium sm:inline-flex items-center gap-1 transition-colors ${
+              scrolled ? "text-foreground/70" : "text-white/80"
             }`}
           >
-            EN | العربية
-          </button>
+            <button
+              type="button"
+              onClick={() => setLanguage("en")}
+              className={`transition-colors ${
+                current === "en"
+                  ? scrolled
+                    ? "text-brand"
+                    : "text-white"
+                  : "hover:text-brand"
+              }`}
+              aria-pressed={current === "en"}
+            >
+              EN
+            </button>
+            <span aria-hidden>|</span>
+            <button
+              type="button"
+              onClick={() => setLanguage("ar")}
+              className={`transition-colors ${
+                current === "ar"
+                  ? scrolled
+                    ? "text-brand"
+                    : "text-white"
+                  : "hover:text-brand"
+              }`}
+              aria-pressed={current === "ar"}
+            >
+              العربية
+            </button>
+          </div>
 
           <a
             href="#cta"
             className="inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 text-sm font-semibold text-brand-deep shadow-sm transition-transform hover:scale-[1.03]"
           >
-            Request a Demo
+            {t("header.demo")}
 
             <svg
               viewBox="0 0 20 20"

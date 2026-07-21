@@ -1,79 +1,131 @@
+# Bilingual (EN / AR) Architecture for Smart Poultry
 
-## Benchmark: what PoultrySync does well
+Add production-ready i18n with i18next + react-i18next, SSR-safe under TanStack Start, RTL support for Arabic, and a working header switcher — no visual redesign.
 
-Looking at poultrysync.com, the qualities that make it feel premium and credible:
+## 1. Dependencies
 
-1. **Bold gradient hero** — deep green → teal → soft blue diagonal, with a large custom isometric illustration (rooster + dashboard monitors + gears) on the left and a short, benefit-led headline on the right.
-2. **Single, confident CTA** — "Request Demo" repeated in nav and hero (green pill on white / white pill on green).
-3. **Clear top nav IA** — Home · Solutions · Products · Add‑ons · Services · Partners · عربي · Request Demo.
-4. **Generous whitespace, oversized type** — headline is big, line-height loose, body copy short.
-5. **Custom illustrations, not stock UI mockups** — every section has a bespoke isometric scene (chickens, farms, sensors, dashboards) instead of generic device frames.
-6. **Trusted-by strip** right under the hero for instant credibility.
-7. **Section rhythm** — alternating light/dark bands, each with illustration on one side and a 2–4 bullet feature list on the other.
+Install (via `bun add`):
+- `i18next`
+- `react-i18next`
+- `i18next-browser-languagedetector`
 
-## What our current homepage is missing
+(Remove the placeholder files `src/i18n/en.json.tsx`, `src/i18n/ar.json.tsx`, `src/i18n/index.tsx` — they are `.tsx` holding JSON, which breaks imports.)
 
-- No hero illustration — it's a CSS "dashboard" mock that reads as flat and generic.
-- Nav lacks the product-led IA (Solutions/Products/Add-ons/Services/Partners).
-- No trusted-by strip, no bespoke section illustrations, weak visual hierarchy between sections.
-- Modules grid is 12 tiny cards — too dense, no storytelling.
-- Green is applied as flat blocks, not as the signature gradient that gives PoultrySync its identity.
+## 2. Translation files
 
-## Redesign plan (homepage only)
+Create real JSON files:
 
-### 1. Brand tokens (styles.css)
-- Add a signature gradient: `--gradient-brand: linear-gradient(135deg, #00665D 0%, #0A8C7E 55%, #4FB3A9 100%)` plus a soft-blue tail for hero backgrounds.
-- Add depth tokens: elevated card shadow, soft outer glow for illustrations, rounded-3xl radius for hero art frames.
-- Keep Anuphan; tighten heading scale (H1 clamp 40→72px), body 16→18px, lifted line-height.
+- `src/i18n/locales/en.json`
+- `src/i18n/locales/ar.json`
 
-### 2. New top navigation
-- Slim white nav on gradient hero, dark nav on scroll.
-- Items: **Solutions · Modules · Power BI · Connectivity · Partners · العربية**, plus yellow "Request Demo" pill (Smart Poultry uses green + yellow, so demo CTA stays yellow to differentiate from PoultrySync).
+Namespaced by section (all currently hardcoded strings extracted):
 
-### 3. Hero (rebuild)
-- Full-bleed gradient background (brand green → teal → soft aqua) with subtle grain.
-- Left: custom **isometric hero illustration** generated as a single asset — poultry house with sensors, tablet showing dashboard, small flock, LoRaWAN waves. Framed with soft shadow, floats slightly.
-- Right: headline "Turn every poultry house into an intelligent, connected operation." · one-line subhead · two CTAs (yellow "Request a Demo", ghost "Watch overview").
-- Bottom of hero: thin curved white transition (matches PoultrySync's swoosh).
+```
+{
+  "header": { "home", "solutions", "caseStudies", "pricing", "contact", "demo", "language" },
+  "hero":   { "badge", "titleLead", "titleHighlight", "titleTail", "subtitle",
+              "ctaDemo", "ctaExplore",
+              "stats": { "farms", "dataPoints", "mortality" } },
+  "trustedBy": { "heading" },
+  "problemSolution": { ... all strings from ProblemSolution.tsx ... },
+  "footer": { "tagline", "columns": { "platform": {...}, "solutions": {...},
+              "company": {...}, "resources": {...} },
+              "rights", "privacy", "terms", "security" },
+  "common": { "languageLabelEn": "EN", "languageLabelAr": "العربية" }
+}
+```
 
-### 4. Trusted-by strip
-- Neutral band right after hero, 5–6 partner/customer logos in muted grey.
+Arabic file mirrors the same key tree with translated values.
 
-### 5. Problem → Solution split
-- Two-column band: left = "Traditional farms lose margin to blind spots" with 3 pain bullets; right = "Smart Poultry gives you one intelligent layer" with 3 outcome bullets. Small supporting icons in brand green.
+## 3. i18n setup (SSR-safe)
 
-### 6. Core Modules — redesigned
-- Replace the 12-tile wall with a **featured 6-card grid** (IoT Monitoring, Computer Vision, AI Insights, Operational Cycle, Farm Ops, Smart Alerts) using large icon + short paragraph + "Learn more" link.
-- Below: compact chip row listing the other modules ("+ Power BI Analytics, Weighing, Water & Feed, Health, Environment, Access…").
+Create `src/i18n/config.ts`:
 
-### 7. Power BI showcase
-- Dark band. Left: real-looking dashboard screenshot (illustrated mock — production/mortality/FCR tiles). Right: 3-bullet value list (real-time KPIs, drill-down, exportable reports).
+- Exports `SUPPORTED_LANGUAGES = ['en','ar'] as const`, `type Language`, `DEFAULT_LANGUAGE = 'en'`, `RTL_LANGUAGES = ['ar']`, and `isRtl(lang)`.
+- Exports `i18n` instance built with `initReactI18next` (no `LanguageDetector` at module scope — detector is a browser API).
+- `i18n.init({ resources: { en, ar }, lng: DEFAULT_LANGUAGE, fallbackLng: 'en', interpolation: { escapeValue: false }, react: { useSuspense: false } })`.
+- Resources imported statically from the JSON files so both SSR and client have the same bundle → no hydration mismatch.
 
-### 8. Connectivity diagram
-- Light band with a cleaner LoRaWAN illustration: sensors → gateway → cloud → dashboard, with subtle animated pulse dots.
+This module is safe to import from server or client: initialization is synchronous, deterministic, uses the default language on both sides.
 
-### 9. Outcomes / impact
-- 4 stat cards on gradient background: mortality ↓, FCR ↑, labor hours saved, alerts response time.
+## 4. Client-only language detection
 
-### 10. Final CTA band
-- Gradient again, centered: "Ready to modernize your farms?" + yellow "Request a Demo" + secondary "Talk to sales".
+Create `src/i18n/client.ts` with a `syncClientLanguage()` function:
 
-### 11. Footer
-- Multi-column: Product, Company, Resources, Contact + Alareeb ICT attribution + language toggle.
+- Guarded by `typeof window !== 'undefined'`.
+- Reads `localStorage.getItem('lang')`, falls back to `navigator.language` prefix, then `DEFAULT_LANGUAGE`.
+- Validates against `SUPPORTED_LANGUAGES`.
+- Calls `i18n.changeLanguage(lang)` and updates `document.documentElement.lang` + `document.documentElement.dir` (`rtl` for `ar`, else `ltr`).
+- Exports `setLanguage(lang)` which persists to `localStorage` and applies the same doc updates.
 
-## Assets to generate
-- 1 hero isometric illustration (poultry house + dashboard + sensors + flock) — brand green/yellow palette, on transparent background.
-- 1 Power BI dashboard mock illustration.
-- 6 module icons (line + brand green, consistent stroke).
-- 5–6 grayscale partner logo placeholders (or use text).
+Called from `useEffect` — never at module scope — so SSR renders English, then the client swaps if needed. Matches the pattern in the `tanstack-execution-model` knowledge card.
 
-## Out of scope
-- No backend, no new routes, no auth. Homepage `/` only.
-- No changes to routing, SEO metadata structure (only copy tweaks in existing head()).
+## 5. Provider wiring in `__root.tsx`
 
-## Technical notes
-- All work stays inside `src/routes/index.tsx`, `src/routes/__root.tsx` (nav/head), `src/components/home/*`, `src/styles.css`, and new files under `src/assets/`.
-- Gradient + shadow + radius exposed as semantic tokens in `styles.css`; no hardcoded hex in components.
-- Generated illustrations imported as ES6 image imports.
+- Import `i18n` from `src/i18n/config` (side-effect init).
+- Wrap `<Outlet />` in `<I18nextProvider i18n={i18n}>` inside `RootComponent`.
+- In `RootComponent`, add a `useEffect(() => { syncClientLanguage(); }, [])` to hydrate the stored language.
+- Keep `<html lang="en">` in `RootShell` as the SSR default (client effect updates it after hydration; matches the SSR content, so no mismatch warning).
 
-Approve and I'll build it.
+No changes to `src/start.ts` or `src/server.ts` — nothing here needs a server boundary.
+
+## 6. Language switcher hook + header
+
+Create `src/i18n/useLanguage.ts`:
+
+```ts
+export function useLanguage() {
+  const { i18n } = useTranslation();
+  const current = (i18n.resolvedLanguage ?? 'en') as Language;
+  return { current, setLanguage, isRtl: isRtl(current) };
+}
+```
+
+Update `SiteHeader.tsx`:
+
+- Replace the static `EN | العربية` button with two buttons (or a segmented control preserving the exact same visual — just make each half clickable). Same classes, same layout, no restyle.
+- Clicking each calls `setLanguage('en' | 'ar')`.
+- Replace hardcoded nav labels with `t('header.*')`.
+
+## 7. Translate existing components
+
+Only text substitution — no structural or style changes:
+
+- `SiteHeader.tsx` — nav items + demo CTA + language toggle.
+- `Hero.tsx` — badge, headline (split into lead / highlight / tail keys so the yellow `intelligent` accent still works in both languages), subtitle, CTAs, stat labels/values.
+- `TrustedBy.tsx` — heading. (Partner names remain literal.)
+- `ProblemSolution.tsx` — all copy.
+- `SiteFooter.tsx` — tagline, column titles, link labels, legal links, rights notice.
+
+Other homepage components (`ModulesGrid`, `PowerBIShowcase`, `Connectivity`, `Outcomes`, `FinalCTA`, `Challenge`) are out of scope per the request (only the five listed).
+
+## 8. RTL
+
+- `syncClientLanguage` + `setLanguage` set `document.documentElement.dir`.
+- Tailwind's default utilities are largely direction-neutral; existing layouts use flex/grid which mirror automatically under `dir="rtl"`. No class changes — request specifies no layout modification. (If a user later reports mirrored icon issues, they can be addressed with logical properties, but that's beyond this scope.)
+
+## 9. Cleanup
+
+Delete the invalid placeholder files:
+- `src/i18n/en.json.tsx`
+- `src/i18n/ar.json.tsx`
+- `src/i18n/index.tsx`
+
+## Files touched
+
+Created: `src/i18n/config.ts`, `src/i18n/client.ts`, `src/i18n/useLanguage.ts`, `src/i18n/locales/en.json`, `src/i18n/locales/ar.json`.
+Modified: `src/routes/__root.tsx`, `src/components/home/SiteHeader.tsx`, `src/components/home/Hero.tsx`, `src/components/home/TrustedBy.tsx`, `src/components/home/ProblemSolution.tsx`, `src/components/home/SiteFooter.tsx`.
+Deleted: three old `src/i18n/*.tsx` files.
+
+## Why this is SSR-safe
+
+- i18next initializes synchronously at module load with English resources on both server and client → identical first render → no hydration mismatch and no 500s.
+- `LanguageDetector` and all `localStorage` / `document` access live in a `useEffect` after hydration.
+- No `process.env`, no server-only APIs; nothing added to `start.ts` / `server.ts`.
+
+## Post-implementation explainer (delivered in chat)
+
+1. **Where i18n is initialized** — `src/i18n/config.ts`, imported by `src/routes/__root.tsx`; the `<I18nextProvider>` wraps the app in `RootComponent`.
+2. **Why that's correct for TanStack Start** — module-scope init with static resources is deterministic on server and client, so SSR output matches the first client render. Browser-only detection runs in `useEffect`, respecting the execution-model rules (no `window`/`localStorage` during SSR).
+3. **Adding languages** — drop `src/i18n/locales/<code>.json`, add the code to `SUPPORTED_LANGUAGES` (and `RTL_LANGUAGES` if applicable), register it in `resources` in `config.ts`. Optionally expose it in the switcher.
+4. **Translating new components** — `const { t } = useTranslation();` then `{t('section.key')}`. Add matching keys to both locale files.

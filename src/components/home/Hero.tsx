@@ -1,6 +1,15 @@
+import { useTranslation } from "react-i18next";
 import heroIllustration from "@/assets/hero-illustration.png";
 
 export function Hero() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { k: t("hero.stats.farmsLabel"), v: t("hero.stats.farmsValue") },
+    { k: t("hero.stats.dataLabel"), v: t("hero.stats.dataValue") },
+    { k: t("hero.stats.mortalityLabel"), v: t("hero.stats.mortalityValue") },
+  ];
+
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-hero pt-24 pb-32 lg:pt-32 lg:pb-44">
       {/* Ambient glow */}
@@ -23,23 +32,21 @@ export function Hero() {
         <div className="animate-fade-up lg:col-span-6 lg:pr-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white/90 backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-highlight" />
-            Enterprise SaaS · Built by Alareeb ICT
+            {t("hero.badge")}
           </span>
           <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Turn every poultry house into an{" "}
+            {t("hero.titleLead")}{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-highlight">intelligent</span>
+              <span className="relative z-10 text-highlight">{t("hero.titleHighlight")}</span>
               <span
                 aria-hidden
                 className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded bg-highlight/20"
               />
             </span>
-            , connected operation.
+            {t("hero.titleTail")}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-            Smart Poultry unifies IoT sensors, computer vision, AI insights and Power BI
-            analytics into one operating system — so your farms run with precision, not
-            guesswork.
+            {t("hero.subtitle")}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -47,7 +54,7 @@ export function Hero() {
               href="#cta"
               className="inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3.5 text-sm font-semibold text-brand-deep shadow-elevated transition-transform hover:scale-[1.03]"
             >
-              Request a Demo
+              {t("hero.ctaDemo")}
               <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 10h10M11 6l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -56,16 +63,12 @@ export function Hero() {
               href="#modules"
               className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10"
             >
-              Explore the platform
+              {t("hero.ctaExplore")}
             </a>
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-white/15 pt-8 max-w-lg">
-            {[
-              { k: "Farms managed", v: "120+" },
-              { k: "IoT data points / day", v: "8.4M" },
-              { k: "Mortality reduction", v: "-27%" },
-            ].map((s) => (
+            {stats.map((s) => (
               <div key={s.k}>
                 <dt className="text-xs uppercase tracking-wider text-white/60">{s.k}</dt>
                 <dd className="mt-1 text-2xl font-bold text-white">{s.v}</dd>
@@ -78,7 +81,7 @@ export function Hero() {
           <div className="absolute inset-0 -m-8 rounded-[3rem] bg-white/5 blur-2xl" aria-hidden />
           <img
             src={heroIllustration}
-            alt="Smart Poultry platform illustration showing a connected poultry house with sensors, a dashboard tablet, LoRaWAN gateway and analytics cloud"
+            alt={t("hero.imageAlt")}
             width={1408}
             height={1200}
             className="relative w-full animate-float drop-shadow-2xl"

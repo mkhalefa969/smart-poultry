@@ -1,10 +1,10 @@
 const partners = [
-  "Alareeb ICT",
-  "Al Watania",
+  "Microsoft",
+  "NTDP",
+  "CAAPP",
   "Almarai",
   "Sadia",
-  "PoultryCo",
-  "AgriTech Group",
+  "ARASCO",
 ];
 
 export function TrustedBy() {

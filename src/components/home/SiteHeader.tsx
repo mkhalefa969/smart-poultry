@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-
+import logo from "../../assets/logo.png.png";
 const nav = [
+  { label: "Home", href: "#top" },
   { label: "Solutions", href: "#solutions" },
-  { label: "Modules", href: "#modules" },
-  { label: "Power BI", href: "#power-bi" },
-  { label: "Connectivity", href: "#connectivity" },
-  { label: "Outcomes", href: "#outcomes" },
+  { label: "Case Studies", href: "#casestudies" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 export function SiteHeader() {
@@ -27,24 +27,17 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#top" className="flex items-center gap-2">
-          <span
-            className={`grid h-9 w-9 place-items-center rounded-xl ${
-              scrolled ? "bg-brand" : "bg-white/15 backdrop-blur"
-            }`}
-          >
-            <svg viewBox="0 0 24 24" className="h-5 w-5 text-highlight" fill="currentColor">
-              <path d="M12 2c3 3 5 5.5 5 9a5 5 0 1 1-10 0c0-3.5 2-6 5-9Zm0 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" />
-            </svg>
-          </span>
-          <div className={`leading-tight ${scrolled ? "text-foreground" : "text-white"}`}>
-            <div className="text-sm font-semibold tracking-tight">Smart Poultry</div>
-            <div className={`text-[10px] uppercase tracking-widest ${scrolled ? "text-muted-foreground" : "text-white/70"}`}>
-              by Alareeb ICT
-            </div>
-          </div>
+        
+        {/* Logo */}
+        <a href="#top" className="flex items-center">
+          <img
+            src={logo}
+            alt="Smart Poultry"
+            className="h-12 w-auto transition-all duration-300"
+          />
         </a>
 
+        {/* Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
             <a
@@ -61,21 +54,36 @@ export function SiteHeader() {
           ))}
         </nav>
 
+        {/* Right Side */}
         <div className="flex items-center gap-3">
           <button
             className={`hidden text-sm font-medium sm:inline-flex transition-colors ${
-              scrolled ? "text-foreground/70 hover:text-brand" : "text-white/80 hover:text-white"
+              scrolled
+                ? "text-foreground/70 hover:text-brand"
+                : "text-white/80 hover:text-white"
             }`}
           >
-            العربية
+            EN | العربية
           </button>
+
           <a
             href="#cta"
             className="inline-flex items-center gap-1.5 rounded-full bg-highlight px-4 py-2 text-sm font-semibold text-brand-deep shadow-sm transition-transform hover:scale-[1.03]"
           >
             Request a Demo
-            <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 10h10M11 6l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+
+            <svg
+              viewBox="0 0 20 20"
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
+              <path
+                d="M5 10h10M11 6l4 4-4 4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </a>
         </div>

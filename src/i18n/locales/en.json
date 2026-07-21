@@ -1,0 +1,132 @@
+{
+  "header": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "caseStudies": "Case Studies",
+    "pricing": "Pricing",
+    "contact": "Contact Us",
+    "demo": "Request a Demo"
+  },
+  "hero": {
+    "badge": "Enterprise SaaS · Built by Alareeb ICT",
+    "titleLead": "Turn every poultry house into an",
+    "titleHighlight": "intelligent",
+    "titleTail": ", connected operation.",
+    "subtitle": "Smart Poultry unifies IoT sensors, computer vision, AI insights and Power BI analytics into one operating system — so your farms run with precision, not guesswork.",
+    "ctaDemo": "Request a Demo",
+    "ctaExplore": "Explore the platform",
+    "stats": {
+      "farmsLabel": "Farms managed",
+      "farmsValue": "120+",
+      "dataLabel": "IoT data points / day",
+      "dataValue": "8.4M",
+      "mortalityLabel": "Mortality reduction",
+      "mortalityValue": "-27%"
+    },
+    "imageAlt": "Smart Poultry platform illustration showing a connected poultry house with sensors, a dashboard tablet, LoRaWAN gateway and analytics cloud"
+  },
+  "trustedBy": {
+    "heading": "Trusted by integrators & producers across the region"
+  },
+  "problemSolution": {
+    "eyebrow": "Enterprise Operations Platform",
+    "titleLead": "One Platform.",
+    "titleAccent": "Complete Farm Intelligence.",
+    "subtitle": "Smart Poultry connects every operational layer of your poultry farm into one intelligent platform that continuously monitors, analyses, predicts and optimizes production performance.",
+    "left": {
+      "title": "Farm Operations",
+      "subtitle": "Every production cycle generates thousands of operational events. Smart Poultry captures them automatically.",
+      "items": {
+        "bird": {
+          "title": "Bird Performance",
+          "description": "Monitor flock health, growth rate, mortality, and production performance throughout the production cycle."
+        },
+        "env": {
+          "title": "Environmental Control",
+          "description": "Track temperature, humidity, CO₂ and ammonia levels in real time to maintain optimal conditions."
+        },
+        "feed": {
+          "title": "Feed Management",
+          "description": "Measure feed consumption, silo levels and feeding efficiency to optimize FCR and reduce waste."
+        },
+        "water": {
+          "title": "Water Monitoring",
+          "description": "Monitor water consumption patterns and detect abnormal behavior before it impacts production."
+        }
+      }
+    },
+    "center": {
+      "title": "Smart Poultry",
+      "subtitle": "Cognitive Enterprise Platform",
+      "pillars": {
+        "iot": "IoT Sensors",
+        "cv": "Computer Vision",
+        "ai": "Artificial Intelligence",
+        "bi": "Power BI",
+        "auto": "Automation"
+      }
+    },
+    "right": {
+      "title": "Cognitive Intelligence Engine",
+      "subtitle": "Transform operational data into intelligent business decisions.",
+      "items": {
+        "iot": "Real-time IoT Monitoring",
+        "cv": "Computer Vision Analytics",
+        "ai": "AI-powered Decision Support",
+        "alerts": "Predictive Alerts",
+        "bi": "Power BI Executive Dashboards",
+        "opt": "Continuous Performance Optimization"
+      },
+      "footerTitle": "The Cognitive Enterprise Platform",
+      "footerText": "IoT Sensors + Computer Vision + Artificial Intelligence + Power BI + Automation working together as one connected operating system."
+    }
+  },
+  "footer": {
+    "tagline": "The AI operating system for modern poultry farms — IoT, computer vision, predictive analytics and Power BI, unified.",
+    "brand": "Smart Poultry",
+    "brandSub": "by Alareeb ICT",
+    "columns": {
+      "platform": {
+        "title": "Platform",
+        "links": {
+          "iot": "IoT Monitoring",
+          "cv": "Computer Vision",
+          "ai": "AI Insights",
+          "bi": "Power BI",
+          "connectivity": "Connectivity"
+        }
+      },
+      "solutions": {
+        "title": "Solutions",
+        "links": {
+          "broiler": "Broiler Farms",
+          "layer": "Layer Farms",
+          "breeders": "Breeders",
+          "integrators": "Integrators"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About Alareeb ICT",
+          "careers": "Careers",
+          "partners": "Partners",
+          "contact": "Contact"
+        }
+      },
+      "resources": {
+        "title": "Resources",
+        "links": {
+          "docs": "Documentation",
+          "cases": "Case Studies",
+          "support": "Support",
+          "security": "Security"
+        }
+      }
+    },
+    "rights": "© {{year}} Alareeb ICT. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "security": "Security"
+  }
+}

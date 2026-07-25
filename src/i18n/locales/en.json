@@ -9,21 +9,37 @@
   },
   "hero": {
     "badge": "Enterprise SaaS · Built by Alareeb ICT",
-    "titleLead": "Turn every poultry house into an",
-    "titleHighlight": "intelligent",
-    "titleTail": ", connected operation.",
-    "subtitle": "Smart Poultry unifies IoT sensors, computer vision, AI insights and Power BI analytics into one operating system — so your farms run with precision, not guesswork.",
+    "titleLead": "Increase Farm Profitability with",
+    "titleHighlight": "AI-Powered",
+    "titleTail": "Poultry Intelligence",
+    "subtitle": "Smart Poultry connects your farms, equipment, sensors and teams into one intelligent operating platform that helps reduce losses, improve FCR and enable faster operational decisions.",
     "ctaDemo": "Request a Demo",
-    "ctaExplore": "Explore the platform",
+    "ctaExplore": "Watch 2-Minute Product Tour",
+    "chips": {
+      "ai": "AI Decision Support",
+      "monitor": "Live Farm Monitoring",
+      "erp": "ERP Integration",
+      "iot": "IoT Connectivity",
+      "cv": "Computer Vision",
+      "predict": "Predictive Analytics"
+    },
+    "cards": {
+      "temperature": "Temperature",
+      "water": "Water",
+      "birdWeight": "Bird Weight",
+      "feedIntake": "Feed Intake",
+      "aiLabel": "AI",
+      "fcr": "FCR"
+    },
     "stats": {
-      "farmsLabel": "Farms managed",
+      "farmsLabel": "Farm houses managed",
       "farmsValue": "120+",
-      "dataLabel": "IoT data points / day",
-      "dataValue": "8.4M",
+      "dataLabel": "IoT data points per day",
+      "dataValue": "8.4M+",
       "mortalityLabel": "Mortality reduction",
       "mortalityValue": "-27%"
     },
-    "imageAlt": "Smart Poultry platform illustration showing a connected poultry house with sensors, a dashboard tablet, LoRaWAN gateway and analytics cloud"
+    "imageAlt": "Smart Poultry connected farm house with floating KPI cards showing temperature, water, bird weight, feed intake, AI and FCR"
   },
   "trustedBy": {
     "heading": "Trusted by integrators & producers across the region"

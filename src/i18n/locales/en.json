@@ -29,8 +29,11 @@
       "birdWeight": "Bird Weight",
       "feedIntake": "Feed Intake",
       "aiLabel": "AI",
+      "aiAlert": "AI Alert",
+      "aiAlertValue": "Optimal",
       "fcr": "FCR"
     },
+
     "stats": {
       "farmsLabel": "Farm houses managed",
       "farmsValue": "120+",

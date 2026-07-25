@@ -29,8 +29,11 @@
       "birdWeight": "وزن الطائر",
       "feedIntake": "استهلاك العلف",
       "aiLabel": "AI",
+      "aiAlert": "تنبيه الذكاء",
+      "aiAlertValue": "مثالي",
       "fcr": "FCR"
     },
+
     "stats": {
       "farmsLabel": "عنابر مُدارة",
       "farmsValue": "+120",

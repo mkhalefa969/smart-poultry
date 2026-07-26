@@ -277,20 +277,17 @@ export function Hero() {
             </div>
 
             {/* Right rail */}
-            <div className="hidden sm:flex flex-col gap-4 shrink-0 relative z-10">
-              {rightCards.map((c, i) => (
-                <div key={i} className="relative w-[150px] [&>div]:!static [&>div]:!w-full">{c}</div>
-              ))}
+            <div className="hidden sm:flex flex-col gap-4 shrink-0 w-[150px] relative z-10">
+              {rightCards}
             </div>
           </div>
 
           {/* Mobile: KPI grid below image */}
           <div className="mt-6 grid grid-cols-2 gap-3 sm:hidden">
-            {[...leftCards, ...rightCards].map((c, i) => (
-              <div key={i} className="relative [&>div]:!static [&>div]:!w-full">{c}</div>
-            ))}
+            {[...leftCards, ...rightCards]}
           </div>
         </div>
+
       </div>
 
 

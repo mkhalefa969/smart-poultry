@@ -293,7 +293,6 @@ export function Hero() {
         </div>
       </div>
 
-      </div>
 
       {/* Premium KPI band */}
       <div className="relative mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">

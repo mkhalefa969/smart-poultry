@@ -244,11 +244,10 @@ export function Hero() {
         <div className="relative lg:col-span-6">
           <div className="relative mx-auto flex items-center justify-center gap-3 sm:gap-4">
             {/* Left rail */}
-            <div className="hidden sm:flex flex-col gap-4 shrink-0 relative z-10">
-              {leftCards.map((c, i) => (
-                <div key={i} className="relative w-[150px] [&>div]:!static [&>div]:!w-full">{c}</div>
-              ))}
+            <div className="hidden sm:flex flex-col gap-4 shrink-0 w-[150px] relative z-10">
+              {leftCards}
             </div>
+
 
             {/* Illustration */}
             <div className="relative aspect-square w-full max-w-[460px] flex-1">

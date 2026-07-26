@@ -159,11 +159,6 @@
   0% { transform: scale(0.6); opacity: 0.8; }
   100% { transform: scale(2.2); opacity: 0; }
 }
-@keyframes sp-fade-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 
 @utility animate-fade-up {
   animation: sp-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;

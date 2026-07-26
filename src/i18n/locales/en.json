@@ -12,26 +12,37 @@
     "titleLead": "Increase Farm Profitability with",
     "titleHighlight": "AI-Powered",
     "titleTail": "Poultry Intelligence",
-    "subtitle": "Smart Poultry connects your farms, equipment, sensors, and teams into one intelligent operating platform that helps reduce mortality, improve FCR and enable faster operational decisions.",
+    "subtitle": "Smart Poultry connects your farms, equipment, sensors and teams into one intelligent operating platform that helps reduce losses, improve FCR and enable faster operational decisions.",
     "ctaDemo": "Request a Demo",
     "ctaExplore": "Watch 2-Minute Product Tour",
     "chips": {
       "ai": "AI Decision Support",
-      "live": "Live Farm Monitoring",
+      "monitor": "Live Farm Monitoring",
       "erp": "ERP Integration",
       "iot": "IoT Connectivity",
       "cv": "Computer Vision",
-      "predictive": "Predictive Analytics"
+      "predict": "Predictive Analytics"
     },
+    "cards": {
+      "temperature": "Temperature",
+      "water": "Water",
+      "birdWeight": "Bird Weight",
+      "feedIntake": "Feed Intake",
+      "aiLabel": "AI",
+      "aiAlert": "AI Alert",
+      "aiAlertValue": "Optimal",
+      "fcr": "FCR"
+    },
+
     "stats": {
       "farmsLabel": "Farm houses managed",
       "farmsValue": "120+",
-      "dataLabel": "IoT data points / day",
+      "dataLabel": "IoT data points per day",
       "dataValue": "8.4M+",
       "mortalityLabel": "Mortality reduction",
       "mortalityValue": "-27%"
     },
-    "imageAlt": "Smart Poultry connected farm scene with 3D poultry house, IoT sensors, LoRaWAN gateway, tablet dashboard and floating KPI cards for temperature, water, bird weight, feed intake and FCR"
+    "imageAlt": "Smart Poultry connected farm house with floating KPI cards showing temperature, water, bird weight, feed intake, AI and FCR"
   },
   "trustedBy": {
     "heading": "Trusted by integrators & producers across the region"

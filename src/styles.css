@@ -159,6 +159,13 @@
   0% { transform: scale(0.6); opacity: 0.8; }
   100% { transform: scale(2.2); opacity: 0; }
 }
+@keyframes sp-pulse-glow {
+  0%, 100% { opacity: 0.35; transform: translate(-50%, 0) scale(1); }
+  50% { opacity: 0.65; transform: translate(-50%, 0) scale(1.15); }
+}
+@utility animate-pulse-glow {
+  animation: sp-pulse-glow 4s ease-in-out infinite;
+}
 
 @utility animate-fade-up {
   animation: sp-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;

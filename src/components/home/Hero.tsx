@@ -43,11 +43,12 @@ function FloatCard({ label, value, unit, icon, className = "", delay = 0, accent
   };
   return (
     <div
-      className={`group absolute w-[140px] rounded-2xl border border-white/10 bg-brand-deep/70 px-3.5 py-2.5 shadow-elevated backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-highlight/40 hover:shadow-glow ${className}`}
+      className={`group rounded-2xl border border-white/10 bg-brand-deep/70 px-3.5 py-2.5 shadow-elevated backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-highlight/40 hover:shadow-glow ${className}`}
       style={{
         animation: `sp-fade-in 0.8s ${delay}s both, sp-float 7s ease-in-out ${delay}s infinite`,
       }}
     >
+
       <div className="flex items-center gap-2.5">
         <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-white/10 ${accentMap[accent]}`}>
           {icon}

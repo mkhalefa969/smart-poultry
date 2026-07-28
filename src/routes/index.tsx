@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { Hero } from "@/components/home/Hero";
 import { TrustedBy } from "@/components/home/TrustedBy";
-import { Challenge } from "@/components/home/Challenge.tsx";
+import { Challenge } from "@/components/home/Challenge";
 import { ProblemSolution } from "@/components/home/ProblemSolution";
 import { ModulesGrid } from "@/components/home/ModulesGrid";
 import { PowerBIShowcase } from "@/components/home/PowerBIShowcase";

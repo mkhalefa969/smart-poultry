@@ -164,14 +164,16 @@ export function Hero() {
 
   // Split into left/right rails flanking the illustration (no overlap with the house)
   const leftCards = [
-    <FloatCard key="temp" icon={<Thermometer className="h-4 w-4" />} label={t("hero.cards.temperature")} value="24.6" unit="°C" accent="green" delay={0.1} />,
-    <FloatCard key="alert" icon={<AlertTriangle className="h-4 w-4" />} label={t("hero.cards.aiAlert")} value={t("hero.cards.aiAlertValue")} accent="red" delay={0.35} />,
-    <FloatCard key="water" icon={<Droplet className="h-4 w-4" />} label={t("hero.cards.water")} value="12.4" unit="KL" accent="blue" delay={0.2} />,
+    <FloatCard key="fcr" icon={<BarChart3 className="h-4 w-4" />} label={t("hero.cards.fcr")} value="1.52" accent="violet" delay={0.1} />,
+    <FloatCard key="bird" icon={<Bird className="h-4 w-4" />} label={t("hero.cards.birdWeight")} value="2.35" unit="kg" accent="yellow" delay={0.2} />,
+    <FloatCard key="feed" icon={<Wheat className="h-4 w-4" />} label={t("hero.cards.feedIntake")} value="1,248" unit="kg" accent="amber" delay={0.3} />,
+   
   ];
   const rightCards = [
-    <FloatCard key="feed" icon={<Wheat className="h-4 w-4" />} label={t("hero.cards.feedIntake")} value="1,248" unit="kg" accent="amber" delay={0.25} />,
-    <FloatCard key="bird" icon={<Bird className="h-4 w-4" />} label={t("hero.cards.birdWeight")} value="2.35" unit="kg" accent="yellow" delay={0.15} />,
-    <FloatCard key="fcr" icon={<BarChart3 className="h-4 w-4" />} label={t("hero.cards.fcr")} value="1.52" accent="violet" delay={0.3} />,
+    <FloatCard key="temp" icon={<Thermometer className="h-4 w-4" />} label={t("hero.cards.temperature")} value="24.6" unit="°C" accent="green" delay={0.15} />,
+    <FloatCard key="water" icon={<Droplet className="h-4 w-4" />} label={t("hero.cards.water")} value="12.4" unit="KL" accent="blue" delay={0.25} />,
+    <FloatCard key="alert" icon={<AlertTriangle className="h-4 w-4" />} label={t("hero.cards.aiAlert")} value={t("hero.cards.aiAlertValue")} accent="red" delay={0.35} />,
+
 
   ];
 

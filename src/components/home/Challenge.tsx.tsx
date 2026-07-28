@@ -61,14 +61,11 @@ export function Challenge() {
           </span>
 
           <h2 className="mt-6 text-4xl font-bold tracking-tight text-slate-900">
-            Poultry Production Has Become More Complex Than Ever
+            Why Modern Poultry Operations Are Losing Profit Every Day
           </h2>
 
           <p className="mt-6 text-lg leading-8 text-slate-600">
-            Rising operational costs, environmental variability, labor dependency,
-            and disconnected systems make efficient poultry management increasingly
-            difficult. Smart Poultry addresses these challenges with one
-            intelligent operating platform.
+            Rising feed costs, unpredictable flock performance, labour shortages and disconnected farm data make profitable poultry operations increasingly difficult. Smart Poultry transforms fragmented operations into one intelligent decision-making platform.
           </p>
         </div>
 

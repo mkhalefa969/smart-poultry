@@ -33,7 +33,6 @@
       "aiAlertValue": "Optimal",
       "fcr": "FCR"
     },
-
     "stats": {
       "farmsLabel": "Farm houses managed",
       "farmsValue": "120+",
@@ -147,5 +146,83 @@
     "privacy": "Privacy",
     "terms": "Terms",
     "security": "Security"
+  },
+  "challenge": {
+    "badge": "Industry Challenges",
+    "title": "Why Traditional Poultry Operations Fall Behind",
+    "description": "Modern poultry producers are under constant pressure from rising production costs, labour shortages, environmental variability and fragmented operational data. Together, these challenges reduce profitability, slow decision-making and make it increasingly difficult to scale operations efficiently.",
+    "chapterLabel": "Chapter {{number}}",
+    "impactLabel": "Business Impact",
+    "insightLabel": "Industry Insight:",
+    "pressure": {
+      "rising": "Increasing pressure",
+      "items": {
+        "feed": "Rising Feed Costs",
+        "labour": "Labour Dependency",
+        "climate": "Climate Variability",
+        "data": "Fragmented Data"
+      },
+      "result1": "Lower Productivity",
+      "result2": "Reduced Profitability"
+    },
+    "chapters": {
+      "operational": {
+        "title": "Operational Challenges",
+        "subtitle": "The daily operational inefficiencies that directly reduce farm profitability."
+      },
+      "environmental": {
+        "title": "Environmental Challenges",
+        "subtitle": "Environmental conditions change continuously and directly influence flock health and production performance."
+      },
+      "decision": {
+        "title": "Decision Intelligence Challenges",
+        "subtitle": "Disconnected information prevents proactive operational decisions."
+      }
+    },
+    "cards": {
+      "feed": {
+        "title": "Rising Feed Costs",
+        "badge": "Highest Business Impact",
+        "description": "Feed represents the largest operating expense in poultry production. Even small improvements in feed conversion can significantly increase overall profitability.",
+        "insight": "Feed accounts for up to 70% of poultry production costs.",
+        "impact": "High Financial Impact"
+      },
+      "manual": {
+        "title": "Manual Farm Operations",
+        "description": "Daily inspections, reporting and monitoring still rely heavily on manual processes, slowing response times and increasing operational inconsistency.",
+        "impact": "Operational Inefficiency"
+      },
+      "env": {
+        "title": "Environmental Instability",
+        "description": "Temperature, humidity, ammonia and CO₂ fluctuations directly affect bird welfare and production consistency.",
+        "impact": "Production Risk"
+      },
+      "waste": {
+        "title": "Water & Feed Waste",
+        "description": "Hidden waste often remains unnoticed until profitability has already been affected.",
+        "impact": "Resource Loss"
+      },
+      "visibility": {
+        "title": "Limited Operational Visibility",
+        "description": "Critical farm information is spread across sensors, spreadsheets and disconnected systems.",
+        "impact": "Delayed Decisions"
+      },
+      "detection": {
+        "title": "Late Problem Detection",
+        "description": "Health issues, equipment failures and environmental risks are often detected after productivity has already declined.",
+        "impact": "Critical Risk"
+      }
+    },
+    "consequences": {
+      "title": "The Cost of Inaction",
+      "description": "Without real-time operational intelligence, poultry producers face higher production costs, inconsistent flock performance, delayed interventions and reduced profitability.",
+      "step1": "Operational Problems",
+      "step2": "Poor Decisions",
+      "step3": "Lower Profitability"
+    },
+    "transition": {
+      "title": "The problem isn't collecting farm data.",
+      "description": "The real challenge is transforming thousands of daily farm events into timely operational decisions."
+    }
   }
 }

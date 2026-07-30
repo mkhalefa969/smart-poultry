@@ -99,6 +99,103 @@
       "footerText": "IoT Sensors + Computer Vision + Artificial Intelligence + Power BI + Automation working together as one connected operating system."
     }
   },
+  "showcase": {
+    "eyebrow": "POWERED BY MICROSOFT POWER BI",
+    "titleLead": "The Command Center ",
+    "titleAccent": "for Every Farm",
+    "titleTail": "",
+    "subtitle": "Every data point Smart Poultry captures — IoT, vision, cycle events, financials — flows into a native Power BI layer built for poultry operations.",
+    "prev": "Previous screen",
+    "next": "Next screen",
+    "slideLabel": "Show {{name}} screen",
+    "slides": {
+      "dashboard": {
+        "tab": "Dashboard",
+        "title": "Executive Dashboard",
+        "desc": "Your command center for real-time farm performance and decision making.",
+        "alt": "Smart Poultry executive dashboard"
+      },
+      "ai": {
+        "tab": "AI Insights",
+        "title": "AI Operations Center",
+        "desc": "AI-powered monitoring, insights and optimization across every farm and house.",
+        "alt": "Smart Poultry AI operations center"
+      },
+      "environment": {
+        "tab": "Environment",
+        "title": "Environmental Monitoring",
+        "desc": "Actual vs predicted temperature, humidity and CO₂ for every house.",
+        "alt": "Environmental monitoring chart"
+      },
+      "cameras": {
+        "tab": "Cameras",
+        "title": "Camera Monitoring",
+        "desc": "Computer vision counts birds, detects mortality and reads movement patterns.",
+        "alt": "Camera monitoring system"
+      },
+      "weight": {
+        "tab": "Body Weight",
+        "title": "Body Weight Records",
+        "desc": "Track average weight, ODO, growth and target achievement per cycle.",
+        "alt": "Body weight records screen"
+      },
+      "farm": {
+        "tab": "Farm Overview",
+        "title": "Farm Overview",
+        "desc": "Every house, every sensor and every live alert in a single view.",
+        "alt": "Farm overview screen"
+      },
+      "reports": {
+        "tab": "Reports (Power BI)",
+        "title": "Power BI Reports",
+        "desc": "Executive reporting with cycle comparison, efficiency metrics and benchmarks.",
+        "alt": "Power BI operations report"
+      }
+    },
+    "panel": {
+      "features": {
+        "kpi": {
+          "title": "Real-time KPIs",
+          "desc": "Monitor key performance indicators across all farms and houses."
+        },
+        "ai": {
+          "title": "AI Powered Insights",
+          "desc": "Get AI-driven recommendations and risk alerts before issues occur."
+        },
+        "alerts": {
+          "title": "Instant Alerts",
+          "desc": "Critical notifications delivered in real time."
+        },
+        "multi": {
+          "title": "Multi-farm Visibility",
+          "desc": "Compare performance across farms, houses and cycles."
+        }
+      },
+      "cta": "Explore All Features"
+    },
+    "stats": {
+      "data": {
+        "value": "8.4M+",
+        "label": "Data points collected every day"
+      },
+      "events": {
+        "value": "Thousands",
+        "label": "Events analyzed every minute"
+      },
+      "alerts": {
+        "value": "95%+",
+        "label": "Alerts delivered before issues escalate"
+      },
+      "fcr": {
+        "value": "3–7%",
+        "label": "Average improvement in FCR"
+      },
+      "profit": {
+        "value": "5–12%",
+        "label": "Increase in profitability for our customers"
+      }
+    }
+  },
   "footer": {
     "tagline": "The AI operating system for modern poultry farms — IoT, computer vision, predictive analytics and Power BI, unified.",
     "brand": "Smart Poultry",

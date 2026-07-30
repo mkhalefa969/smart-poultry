@@ -220,6 +220,40 @@
       }
     }
   },
+
+  "outcomes": {
+  "eyebrow": "Measurable outcomes",
+  "title": "Results our customers see in the first cycles.",
+  "stats": {
+    "mortality": {
+      "value": "-27%",
+      "label": "Mortality rate",
+      "desc": "Across broiler cycles after 6 months of deployment."
+    },
+    "fcr": {
+      "value": "+8%",
+      "label": "Feed conversion",
+      "desc": "Improved FCR through continuous environment tuning."
+    },
+    "reporting": {
+      "value": "-40%",
+      "label": "Manual reporting",
+      "desc": "Hours saved per week per farm manager."
+    },
+    "alert": {
+      "value": "<2 min",
+      "label": "Alert response",
+      "desc": "From anomaly detection to on-ground action."
+    }
+  }
+},
+
+"finalCta": {
+  "title": "Ready to modernize your farms?",
+  "subtitle": "Book a live walkthrough with the Alareeb ICT team. We'll map Smart Poultry to your operation and show a real dashboard in under 30 minutes.",
+  "requestDemo": "Request a Demo",
+  "talkToSales": "Talk to sales"
+},
   "footer": {
     "tagline": "The AI operating system for modern poultry farms — IoT, computer vision, predictive analytics and Power BI, unified.",
     "brand": "Smart Poultry",

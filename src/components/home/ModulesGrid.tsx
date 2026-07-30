@@ -1,14 +1,14 @@
-const modules = [
+import { useTranslation } from "react-i18next";
+
+const MODULE_KEYS = [
   {
-    title: "IoT Monitoring",
-    desc: "Real-time telemetry — temperature, humidity, ammonia, CO₂, water and feed — from every house.",
+    key: "iot",
     icon: (
       <path d="M4 12a8 8 0 0 1 16 0M7 12a5 5 0 0 1 10 0M10 12a2 2 0 1 1 4 0M12 20v-4" strokeLinecap="round" />
     ),
   },
   {
-    title: "Computer Vision",
-    desc: "AI cameras count birds, detect lameness and score flock behavior around the clock.",
+    key: "vision",
     icon: (
       <>
         <circle cx="12" cy="12" r="3.2" />
@@ -17,67 +17,65 @@ const modules = [
     ),
   },
   {
-    title: "AI Insights",
-    desc: "Predictive models flag mortality risk, feed waste and environmental drift hours before it matters.",
+    key: "ai",
     icon: (
       <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" strokeLinecap="round" />
     ),
   },
   {
-    title: "Operational Cycle",
-    desc: "Manage placement, feed programs, vaccination and harvest as one connected cycle timeline.",
+    key: "cycle",
     icon: (
       <path d="M12 3v4M12 21v-4M3 12h4M21 12h-4M6.5 6.5l2.8 2.8M17.5 17.5l-2.8-2.8M6.5 17.5l2.8-2.8M17.5 6.5l-2.8 2.8" strokeLinecap="round" />
     ),
   },
   {
-    title: "Farm Operations",
-    desc: "Field workflows, task assignments and mobile reporting for house managers and vets.",
+    key: "operations",
     icon: (
       <path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-6h4v6" strokeLinejoin="round" />
     ),
   },
   {
-    title: "Smart Alerts",
-    desc: "Multi-channel alerts (SMS, email, in-app) with escalation rules and severity tiers.",
+    key: "alerts",
     icon: (
       <path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8ZM10 21a2 2 0 0 0 4 0" strokeLinecap="round" strokeLinejoin="round" />
     ),
   },
-];
+] as const;
 
-const chips = [
-  "Power BI Analytics",
-  "Weighing",
-  "Water & Feed",
-  "Health Records",
-  "Environment Control",
-  "Access Control",
-  "Biosecurity",
-  "Energy",
-  "Reports Studio",
-];
+const CHIP_KEYS = [
+  "powerBi",
+  "weighing",
+  "waterFeed",
+  "health",
+  "envControl",
+  "access",
+  "biosecurity",
+  "energy",
+  "reports",
+] as const;
 
 export function ModulesGrid() {
+  const { t } = useTranslation();
+
   return (
     <section id="modules" className="relative bg-muted/40 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
-            Platform modules
+            {t("modules.eyebrow")}
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            One platform. Every layer of your operation.
+            {t("modules.title")}
           </h2>
           <p className="mt-4 text-base text-muted-foreground">
-            Six integrated pillars — plus the tools you need to run day-to-day work.
+            {t("modules.subtitle")}
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {modules.map((m) => (
+          {MODULE_KEYS.map((m) => (
             <article
-              key={m.title}
+              key={m.key}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-brand/30 hover:shadow-elevated"
             >
               <div
@@ -89,11 +87,21 @@ export function ModulesGrid() {
                   {m.icon}
                 </svg>
               </div>
-              <h3 className="relative mt-5 text-lg font-semibold text-foreground">{m.title}</h3>
-              <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
+              <h3 className="relative mt-5 text-lg font-semibold text-foreground">
+                {t(`modules.items.${m.key}.title`)}
+              </h3>
+              <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t(`modules.items.${m.key}.desc`)}
+              </p>
               <span className="relative mt-5 inline-flex items-center gap-1 text-sm font-medium text-brand">
-                Learn more
-                <svg viewBox="0 0 20 20" className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2">
+                {t("modules.learnMore")}
+                <svg
+                  viewBox="0 0 20 20"
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <path d="M5 10h10M11 6l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
@@ -103,14 +111,14 @@ export function ModulesGrid() {
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
           <span className="text-xs uppercase tracking-widest text-muted-foreground">
-            plus
+            {t("modules.plus")}
           </span>
-          {chips.map((c) => (
+          {CHIP_KEYS.map((key) => (
             <span
-              key={c}
+              key={key}
               className="rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground/70"
             >
-              {c}
+              {t(`modules.chips.${key}`)}
             </span>
           ))}
         </div>

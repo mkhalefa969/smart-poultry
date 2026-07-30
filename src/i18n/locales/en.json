@@ -99,12 +99,36 @@
       "footerText": "IoT Sensors + Computer Vision + Artificial Intelligence + Power BI + Automation working together as one connected operating system."
     }
   },
+  "connectivity": {
+    "eyebrow": "Connectivity",
+    "title": "LoRaWAN-first, cloud-native, remote-farm ready.",
+    "subtitle": "Built for farms where Wi-Fi and cellular can't reach. Signal travels kilometers on low power — with enterprise-grade cloud on the other end.",
+    "alt": "LoRaWAN connectivity diagram showing IoT sensors, gateway, cloud, and dashboards",
+    "layers": {
+      "edge": {
+        "title": "Edge",
+        "desc": "IoT sensors + AI cameras deployed inside every house."
+      },
+      "network": {
+        "title": "Network",
+        "desc": "LoRaWAN gateway aggregates telemetry — kilometers of range, minimal power."
+      },
+      "cloud": {
+        "title": "Cloud",
+        "desc": "Secure ingestion, storage and AI processing on enterprise infrastructure."
+      },
+      "apps": {
+        "title": "Apps",
+        "desc": "Web dashboards, Power BI reports and mobile alerts for every stakeholder."
+      }
+    }
+  },
   "showcase": {
-    "eyebrow": "POWERED BY MICROSOFT POWER BI",
-    "titleLead": "The Command Center ",
-    "titleAccent": "for Every Farm",
-    "titleTail": "",
-    "subtitle": "Every data point Smart Poultry captures — IoT, vision, cycle events, financials — flows into a native Power BI layer built for poultry operations.",
+    "eyebrow": "Enterprise Operations Platform",
+    "titleLead": "See ",
+    "titleAccent": "Smart Poultry",
+    "titleTail": " in action",
+    "subtitle": "Explore the platform that manages every farm, every house and every production cycle",
     "prev": "Previous screen",
     "next": "Next screen",
     "slideLabel": "Show {{name}} screen",

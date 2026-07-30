@@ -139,7 +139,6 @@ export function PowerBIShowcase() {
         {/* Carousel + panel */}
         <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
           <div className="relative min-w-0">
-            
             {/* Mockup Frame Container */}
             <div
               id="sp-carousel-panel"
@@ -162,12 +161,23 @@ export function PowerBIShowcase() {
 
               {/* Inner Screen Display */}
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[16px] border border-white/10 bg-slate-950 shadow-inner">
-                <img
-                  src={active.image}
-                  alt={t(`showcase.slides.${active.key}.alt`)}
-                  className="h-full w-full object-contain object-center transition-all duration-500 ease-out"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
+                {/* طريقة Lovable (رسم جميع الصور والتحكم بالشفافية للـ Fade) */}
+                {SLIDES.map((slide, i) => (
+                  <img
+                    key={slide.key}
+                    src={slide.image} // نستخدم slide.image
+                    alt={t(`showcase.slides.${slide.key}.alt`)}
+                    // التوقيت Eager لأول صورة لتحميل أسرع، والباقي Lazy
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    // كلاسات Tailwind للـ Fade مأخوذة مباشرة من منطق Lovable
+                    className={`absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-500 ease-in-out ${
+                      i === index ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                  />
+                ))}
+                {/* طبقة التدرج العلوي لتبقى ثابتة فوق الصور */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10 z-20" />
               </div>
             </div>
 
@@ -176,7 +186,7 @@ export function PowerBIShowcase() {
               type="button"
               onClick={() => go(-1)}
               aria-label={t("showcase.prev")}
-              className="absolute start-2 top-1/2 z-10 -translate-y-1/2 sm:start-3 rounded-full border border-highlight/40 bg-brand-deep/80 p-3 text-highlight backdrop-blur transition-colors hover:bg-highlight hover:text-brand-deep"
+              className="absolute start-2 top-1/2 z-30 -translate-y-1/2 sm:start-3 rounded-full border border-highlight/40 bg-brand-deep/80 p-3 text-highlight backdrop-blur transition-colors hover:bg-highlight hover:text-brand-deep"
             >
               <ChevronLeft className="h-5 w-5 rtl:hidden" />
               <ChevronRight className="hidden h-5 w-5 rtl:block" />
@@ -186,7 +196,7 @@ export function PowerBIShowcase() {
               type="button"
               onClick={() => go(1)}
               aria-label={t("showcase.next")}
-              className="absolute end-2 top-1/2 z-10 -translate-y-1/2 sm:end-3 rounded-full border border-highlight/40 bg-brand-deep/80 p-3 text-highlight backdrop-blur transition-colors hover:bg-highlight hover:text-brand-deep"
+              className="absolute end-2 top-1/2 z-30 -translate-y-1/2 sm:end-3 rounded-full border border-highlight/40 bg-brand-deep/80 p-3 text-highlight backdrop-blur transition-colors hover:bg-highlight hover:text-brand-deep"
             >
               <ChevronRight className="h-5 w-5 rtl:hidden" />
               <ChevronLeft className="hidden h-5 w-5 rtl:block" />

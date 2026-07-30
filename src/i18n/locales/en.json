@@ -99,6 +99,50 @@
       "footerText": "IoT Sensors + Computer Vision + Artificial Intelligence + Power BI + Automation working together as one connected operating system."
     }
   },
+  "modules": {
+    "eyebrow": "Platform modules",
+    "title": "One platform. Every layer of your operation.",
+    "subtitle": "Six integrated pillars — plus the tools you need to run day-to-day work.",
+    "learnMore": "Learn more",
+    "plus": "plus",
+    "items": {
+      "iot": {
+        "title": "IoT Monitoring",
+        "desc": "Real-time telemetry — temperature, humidity, ammonia, CO₂, water and feed — from every house."
+      },
+      "vision": {
+        "title": "Computer Vision",
+        "desc": "AI cameras count birds, detect lameness and score flock behavior around the clock."
+      },
+      "ai": {
+        "title": "AI Insights",
+        "desc": "Predictive models flag mortality risk, feed waste and environmental drift hours before it matters."
+      },
+      "cycle": {
+        "title": "Operational Cycle",
+        "desc": "Manage placement, feed programs, vaccination and harvest as one connected cycle timeline."
+      },
+      "operations": {
+        "title": "Farm Operations",
+        "desc": "Field workflows, task assignments and mobile reporting for house managers and vets."
+      },
+      "alerts": {
+        "title": "Smart Alerts",
+        "desc": "Multi-channel alerts (SMS, email, in-app) with escalation rules and severity tiers."
+      }
+    },
+    "chips": {
+      "powerBi": "Power BI Analytics",
+      "weighing": "Weighing",
+      "waterFeed": "Water & Feed",
+      "health": "Health Records",
+      "envControl": "Environment Control",
+      "access": "Access Control",
+      "biosecurity": "Biosecurity",
+      "energy": "Energy",
+      "reports": "Reports Studio"
+    }
+  },
   "connectivity": {
     "eyebrow": "Connectivity",
     "title": "LoRaWAN-first, cloud-native, remote-farm ready.",

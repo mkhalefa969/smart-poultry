@@ -7,7 +7,6 @@ import {
   Wheat,
   Sparkles,
   BarChart3,
-  Play,
   ArrowRight,
   Brain,
   Activity,
@@ -48,7 +47,6 @@ function FloatCard({ label, value, unit, icon, className = "", delay = 0, accent
         animation: `sp-fade-in 0.8s ${delay}s both, sp-float 7s ease-in-out ${delay}s infinite`,
       }}
     >
-
       <div className="flex items-center gap-2.5">
         <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-white/10 ${accentMap[accent]}`}>
           {icon}
@@ -103,7 +101,10 @@ function StatCard({
   decimals?: number;
   delay?: number;
 }) {
+  const { i18n } = useTranslation();
+  const isAr = i18n.language === "ar";
   const display = useCountUp(value, 1800, decimals);
+
   return (
     <div
       className="group relative overflow-hidden rounded-3xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-highlight/40 hover:bg-white/[0.09] sm:p-7"
@@ -123,7 +124,7 @@ function StatCard({
             <span className="text-3xl font-bold tabular-nums sm:text-4xl">{display}</span>
             {suffix && <span className="ml-0.5 text-3xl font-bold sm:text-4xl">{suffix}</span>}
           </div>
-          <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">
+          <div className={`mt-1 font-semibold uppercase tracking-[0.16em] text-white/60 ${isAr ? "text-[10px]" : "text-[11px]"}`}>
             {label}
           </div>
         </div>
@@ -133,7 +134,9 @@ function StatCard({
 }
 
 export function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === "ar"; // فحص هل اللغة الحالية عربية
+
   const wrapRef = useRef<HTMLDivElement>(null);
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
@@ -162,19 +165,15 @@ export function Hero() {
   const px = parallax.x * 6;
   const py = parallax.y * 6;
 
-  // Split into left/right rails flanking the illustration (no overlap with the house)
   const leftCards = [
     <FloatCard key="fcr" icon={<BarChart3 className="h-4 w-4" />} label={t("hero.cards.fcr")} value="1.52" accent="violet" delay={0.1} />,
     <FloatCard key="bird" icon={<Bird className="h-4 w-4" />} label={t("hero.cards.birdWeight")} value="2.35" unit="kg" accent="yellow" delay={0.2} />,
     <FloatCard key="feed" icon={<Wheat className="h-4 w-4" />} label={t("hero.cards.feedIntake")} value="1,248" unit="kg" accent="amber" delay={0.3} />,
-   
   ];
   const rightCards = [
     <FloatCard key="temp" icon={<Thermometer className="h-4 w-4" />} label={t("hero.cards.temperature")} value="24.6" unit="°C" accent="green" delay={0.15} />,
     <FloatCard key="water" icon={<Droplet className="h-4 w-4" />} label={t("hero.cards.water")} value="12.4" unit="KL" accent="blue" delay={0.25} />,
     <FloatCard key="alert" icon={<AlertTriangle className="h-4 w-4" />} label={t("hero.cards.aiAlert")} value={t("hero.cards.aiAlertValue")} accent="red" delay={0.35} />,
-
-
   ];
 
   return (
@@ -197,7 +196,14 @@ export function Hero() {
             {t("hero.badge")}
           </span>
 
-          <h1 className="mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
+          {/* تكييف حجم العنوان للعربية بشكل منفصل */}
+          <h1
+            className={
+              isAr
+                ? "mt-6 text-2xl font-bold leading-snug text-white sm:text-4xl lg:text-[3rem]" // أحجام ومسافات أسطر الخط العربي
+                : "mt-6 text-[2.5rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]" // أحجام الإنجليزية
+            }
+          >
             {t("hero.titleLead")}{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-highlight">{t("hero.titleHighlight")}</span>
@@ -206,7 +212,10 @@ export function Hero() {
             {t("hero.titleTail")}
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">{t("hero.subtitle")}</p>
+          {/* تكييف الوصف */}
+          <p className={`mt-6 max-w-xl text-white/80 ${isAr ? "text-base sm:text-lg leading-relaxed" : "text-lg leading-relaxed"}`}>
+            {t("hero.subtitle")}
+          </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
@@ -214,14 +223,14 @@ export function Hero() {
               className="group inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3.5 text-sm font-semibold text-brand-deep shadow-elevated transition-all hover:scale-[1.03] hover:shadow-glow"
             >
               {t("hero.ctaDemo")}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight className="h-4 w-4 transition-transform rtl:rotate-180 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
             </a>
             <a
-              href="#modules"
+              href="#power-bi"
               className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all hover:scale-[1.02] hover:bg-white/10"
             >
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/15 transition-colors group-hover:bg-white/25">
-                <Play className="h-3 w-3 fill-white text-white" />
+                <Sparkles className="h-3 w-3 fill-white text-white" />
               </span>
               {t("hero.ctaExplore")}
             </a>
@@ -250,7 +259,6 @@ export function Hero() {
             <div className="hidden sm:flex flex-col gap-4 shrink-0 w-[150px] relative z-10">
               {leftCards}
             </div>
-
 
             {/* Illustration */}
             <div className="relative aspect-square w-full max-w-[460px] flex-1">
@@ -290,9 +298,7 @@ export function Hero() {
             {[...leftCards, ...rightCards]}
           </div>
         </div>
-
       </div>
-
 
       {/* Premium KPI band */}
       <div className="relative mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">

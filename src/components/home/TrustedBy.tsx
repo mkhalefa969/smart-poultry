@@ -96,7 +96,6 @@ export function TrustedBy() {
           {t("trustedBy.heading")}
         </p>
 
-        {/* أضفنا dir="ltr" لضمان ثبات اتجاه ورسم نصوص وشعارات SVG من اليسار لليمين */}
         <div 
           dir="ltr" 
           className="mt-10 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6"

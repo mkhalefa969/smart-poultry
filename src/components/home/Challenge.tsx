@@ -215,9 +215,7 @@ function PressureBar() {
                   <Icon className="h-5 w-5 text-brand" strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-brand">
-                    {t("challenge.pressure.rising")}
-                  </span>
+                 
                   <span className="block text-sm font-semibold leading-6 text-foreground">
                     {t(`challenge.pressure.items.${p.key}`)}
                   </span>
@@ -250,7 +248,7 @@ export function Challenge() {
   return (
     <section
       id="challenge"
-      className="relative overflow-hidden bg-gradient-to-b from-brand-soft via-background to-background py-28"
+      className="relative overflow-hidden bg-gradient-to-b from-brand-soft via-background to-background py-16"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[var(--gradient-glow)] opacity-40" />
       <div

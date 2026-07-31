@@ -23,7 +23,7 @@ export function ProblemSolution() {
   const pillarKeys = ["iot", "cv", "ai", "bi", "auto"] as const;
 
   return (
-    <section id="solutions" className="bg-background py-28">
+    <section id="solutions" className="bg-background py-12">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">

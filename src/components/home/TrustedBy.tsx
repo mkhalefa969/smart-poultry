@@ -95,7 +95,12 @@ export function TrustedBy() {
         <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
           {t("trustedBy.heading")}
         </p>
-        <div className="mt-10 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6">
+
+        {/* أضفنا dir="ltr" لضمان ثبات اتجاه ورسم نصوص وشعارات SVG من اليسار لليمين */}
+        <div 
+          dir="ltr" 
+          className="mt-10 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-6"
+        >
           {partners.map(({ name, Logo }) => (
             <div
               key={name}

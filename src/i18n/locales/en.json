@@ -43,7 +43,7 @@
     },
     "imageAlt": "Smart Poultry connected farm house with floating KPI cards showing temperature, water, bird weight, feed intake, AI and FCR"
   },
-    "demoModal": {
+  "demoModal": {
     "title": "Request a Demo",
     "subtitle": "Please fill in the details below and we will schedule a demo for you.",
     "fullName": "Full Name *",
@@ -283,40 +283,38 @@
       }
     }
   },
-
   "outcomes": {
-  "eyebrow": "Measurable outcomes",
-  "title": "Results our customers see in the first cycles.",
-  "stats": {
-    "mortality": {
-      "value": "-27%",
-      "label": "Mortality rate",
-      "desc": "Across broiler cycles after 6 months of deployment."
-    },
-    "fcr": {
-      "value": "+8%",
-      "label": "Feed conversion",
-      "desc": "Improved FCR through continuous environment tuning."
-    },
-    "reporting": {
-      "value": "-40%",
-      "label": "Manual reporting",
-      "desc": "Hours saved per week per farm manager."
-    },
-    "alert": {
-      "value": "<2 min",
-      "label": "Alert response",
-      "desc": "From anomaly detection to on-ground action."
+    "eyebrow": "Measurable outcomes",
+    "title": "Results our customers see in the first cycles.",
+    "stats": {
+      "mortality": {
+        "value": "-27%",
+        "label": "Mortality rate",
+        "desc": "Across broiler cycles after 6 months of deployment."
+      },
+      "fcr": {
+        "value": "+8%",
+        "label": "Feed conversion",
+        "desc": "Improved FCR through continuous environment tuning."
+      },
+      "reporting": {
+        "value": "-40%",
+        "label": "Manual reporting",
+        "desc": "Hours saved per week per farm manager."
+      },
+      "alert": {
+        "value": "<2 min",
+        "label": "Alert response",
+        "desc": "From anomaly detection to on-ground action."
+      }
     }
-  }
-},
-
-"finalCta": {
-  "title": "Ready to modernize your farms?",
-  "subtitle": "Book a live walkthrough with the Alareeb ICT team. We'll map Smart Poultry to your operation and show a real dashboard in under 30 minutes.",
-  "requestDemo": "Request a Demo",
-  "talkToSales": "Talk to sales"
-},
+  },
+  "finalCta": {
+    "title": "Ready to modernize your farms?",
+    "subtitle": "Book a live walkthrough with the Alareeb ICT team. We'll map Smart Poultry to your operation and show a real dashboard in under 30 minutes.",
+    "requestDemo": "Request a Demo",
+    "talkToSales": "Talk to sales"
+  },
   "footer": {
     "tagline": "The AI operating system for modern poultry farms — IoT, computer vision, predictive analytics and Power BI, unified.",
     "brand": "Smart Poultry",
@@ -441,6 +439,582 @@
     "transition": {
       "title": "The problem isn't collecting farm data.",
       "description": "The real challenge is transforming thousands of daily farm events into timely operational decisions."
+    }
+  },
+  "solutions": {
+    "meta": {
+      "title": "Solutions — Cognitive Enterprise OS for Poultry | Smart Poultry",
+      "description": "Smart Poultry unifies IoT, computer vision, AI and business intelligence into one cognitive enterprise operating system that predicts, recommends and automates poultry operations."
+    },
+    "hero": {
+      "badge": "Enterprise Decision Intelligence",
+      "titleLead": "One Platform.",
+      "titleAccent": "Every Poultry Decision.",
+      "subtitle": "Smart Poultry combines AI, IoT, computer vision, closed-loop automation and business intelligence into a single cognitive enterprise platform — so every flock, house and site is understood, predicted and optimised in real time.",
+      "primaryCta": "Request Demo",
+      "secondaryCta": "Explore Technologies",
+      "flow": {
+        "sensors": {
+          "title": "Sensors",
+          "desc": "Continuous signal from every house"
+        },
+        "ai": {
+          "title": "AI Core",
+          "desc": "Models that understand operations"
+        },
+        "reco": {
+          "title": "Recommendations",
+          "desc": "Prescriptive next-best actions"
+        },
+        "automation": {
+          "title": "Automation",
+          "desc": "Closed-loop control execution"
+        },
+        "bi": {
+          "title": "Business Intelligence",
+          "desc": "Executive visibility end to end"
+        }
+      }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "From raw signal to autonomous operation",
+      "subtitle": "A single continuous pipeline connects the barn floor to the boardroom — no manual handovers, no disconnected systems.",
+      "steps": {
+        "sensors": {
+          "title": "Sensors",
+          "desc": "Environmental, water, feed and weight telemetry captured every second."
+        },
+        "gateway": {
+          "title": "Edge Gateway",
+          "desc": "On-site gateways buffer, normalise and secure data even when offline."
+        },
+        "cloud": {
+          "title": "Cloud Platform",
+          "desc": "A unified data model standardises every site, house and batch."
+        },
+        "ai": {
+          "title": "AI Engine",
+          "desc": "Models learn each flock's behaviour and detect deviation early."
+        },
+        "prediction": {
+          "title": "Prediction",
+          "desc": "Forecast weight, FCR, mortality risk and environmental drift."
+        },
+        "recommendation": {
+          "title": "Recommendation",
+          "desc": "Prescriptive actions ranked by business impact."
+        },
+        "automation": {
+          "title": "Automation",
+          "desc": "Approved actions execute directly on controllers."
+        },
+        "bi": {
+          "title": "Power BI",
+          "desc": "Executive dashboards, benchmarking and board-ready reporting."
+        },
+        "erp": {
+          "title": "ERP",
+          "desc": "Costs, inventory and production sync with enterprise systems."
+        }
+      }
+    },
+    "operations": {
+      "eyebrow": "Solutions by operation",
+      "title": "Built around how you actually operate",
+      "subtitle": "Not modules — operating models. Each production type gets its own intelligence, benchmarks and automation logic.",
+      "challengesLabel": "Business challenges",
+      "outcomesLabel": "Business outcomes",
+      "featuresLabel": "Included capabilities",
+      "previewLabel": "Live KPI preview",
+      "tabs": {
+        "broilers": {
+          "name": "Broilers",
+          "headline": "Maximise uniformity and feed conversion",
+          "challenges": [
+            "Feed cost volatility erodes margin per cycle",
+            "Weight uniformity drifts unnoticed until harvest",
+            "Late mortality detection multiplies losses"
+          ],
+          "outcomes": [
+            "Predictive FCR management across every house",
+            "Daily weight forecasting versus breed standard",
+            "Early mortality risk alerts days ahead"
+          ],
+          "features": [
+            "Growth curve forecasting",
+            "Camera-based weight estimation",
+            "Feed and water intake analytics",
+            "Environment optimisation",
+            "Cycle profitability reporting"
+          ],
+          "kpis": [
+            {
+              "label": "Avg. weight",
+              "value": "2.35 kg",
+              "delta": "+3.1%"
+            },
+            {
+              "label": "FCR",
+              "value": "1.52",
+              "delta": "-0.06"
+            },
+            {
+              "label": "Uniformity",
+              "value": "92%",
+              "delta": "+4%"
+            },
+            {
+              "label": "Mortality",
+              "value": "2.1%",
+              "delta": "-0.7%"
+            }
+          ],
+          "chartLabel": "Weight vs. breed standard"
+        },
+        "layers": {
+          "name": "Layers",
+          "headline": "Protect persistency and egg quality",
+          "challenges": [
+            "Production drops detected only after peak loss",
+            "Egg quality variance across houses",
+            "Manual recording delays corrective action"
+          ],
+          "outcomes": [
+            "Lay-rate deviation detected within hours",
+            "Stable persistency across the full cycle",
+            "Automated flock performance reporting"
+          ],
+          "features": [
+            "Lay-rate forecasting",
+            "Egg quality tracking",
+            "Lighting programme intelligence",
+            "Feed efficiency per egg",
+            "House benchmarking"
+          ],
+          "kpis": [
+            {
+              "label": "Lay rate",
+              "value": "94.6%",
+              "delta": "+1.2%"
+            },
+            {
+              "label": "Eggs / hen",
+              "value": "312",
+              "delta": "+8"
+            },
+            {
+              "label": "Feed / egg",
+              "value": "128 g",
+              "delta": "-4 g"
+            },
+            {
+              "label": "Downgrades",
+              "value": "1.4%",
+              "delta": "-0.5%"
+            }
+          ],
+          "chartLabel": "Lay-rate persistency curve"
+        },
+        "parent": {
+          "name": "Parent Stock",
+          "headline": "Optimise fertility and hatching egg supply",
+          "challenges": [
+            "Body-weight control drives fertility outcomes",
+            "Male-female ratio managed by intuition",
+            "Hatching egg forecasting is unreliable"
+          ],
+          "outcomes": [
+            "Precision body-weight and feed allocation",
+            "Fertility trend visibility per flock",
+            "Reliable hatching egg supply planning"
+          ],
+          "features": [
+            "Body-weight uniformity control",
+            "Fertility analytics",
+            "Feed allocation intelligence",
+            "Flock supply forecasting",
+            "Breeder benchmarking"
+          ],
+          "kpis": [
+            {
+              "label": "Fertility",
+              "value": "93.8%",
+              "delta": "+1.6%"
+            },
+            {
+              "label": "HE / hen",
+              "value": "168",
+              "delta": "+5"
+            },
+            {
+              "label": "Uniformity",
+              "value": "88%",
+              "delta": "+3%"
+            },
+            {
+              "label": "Feed accuracy",
+              "value": "99.2%",
+              "delta": "+2.1%"
+            }
+          ],
+          "chartLabel": "Fertility versus target"
+        },
+        "hatcheries": {
+          "name": "Hatcheries",
+          "headline": "Turn hatchability into a controlled variable",
+          "challenges": [
+            "Hatchability variance across setters",
+            "Incubation deviation detected too late",
+            "Chick quality inconsistent between batches"
+          ],
+          "outcomes": [
+            "Incubation profiles tuned per flock age",
+            "Real-time deviation alerts per setter",
+            "Traceable chick quality by batch"
+          ],
+          "features": [
+            "Setter and hatcher monitoring",
+            "Hatchability prediction",
+            "Chick quality scoring",
+            "Batch traceability",
+            "Hatchery yield reporting"
+          ],
+          "kpis": [
+            {
+              "label": "Hatchability",
+              "value": "88.4%",
+              "delta": "+2.2%"
+            },
+            {
+              "label": "Chick quality",
+              "value": "9.1/10",
+              "delta": "+0.4"
+            },
+            {
+              "label": "Setter drift",
+              "value": "0.3°C",
+              "delta": "-0.2°C"
+            },
+            {
+              "label": "Yield",
+              "value": "96.7%",
+              "delta": "+1.1%"
+            }
+          ],
+          "chartLabel": "Hatchability by setter"
+        }
+      }
+    },
+    "capabilities": {
+      "eyebrow": "Core capabilities",
+      "title": "Three engines, one intelligence layer",
+      "subtitle": "Each capability compounds the others — data becomes understanding, understanding becomes action.",
+      "cards": {
+        "ai": {
+          "title": "AI Decision Intelligence",
+          "desc": "Models forecast performance, rank interventions and prescribe the next best action for every house.",
+          "items": [
+            "Forecasting",
+            "Recommendations",
+            "Optimisation",
+            "Prescriptive AI"
+          ]
+        },
+        "cv": {
+          "title": "Computer Vision",
+          "desc": "Cameras become continuous inspectors — counting, weighing and reading flock behaviour without disturbance.",
+          "items": [
+            "Bird counting",
+            "Weight estimation",
+            "Density analysis",
+            "Behaviour detection"
+          ]
+        },
+        "iot": {
+          "title": "IoT & Closed-loop Automation",
+          "desc": "Sensors and controllers operate as one system, executing approved actions automatically.",
+          "items": [
+            "Temperature",
+            "Humidity",
+            "CO₂",
+            "Ammonia",
+            "Controllers",
+            "Feed lines",
+            "Ventilation",
+            "Cooling"
+          ]
+        }
+      }
+    },
+    "loop": {
+      "eyebrow": "Operating philosophy",
+      "title": "Closed-loop intelligence",
+      "subtitle": "Smart Poultry does not stop at insight. Every cycle makes the next decision sharper.",
+      "steps": {
+        "observe": {
+          "title": "Observe",
+          "desc": "Continuous sensing across every house and site."
+        },
+        "understand": {
+          "title": "Understand",
+          "desc": "Context-aware models interpret what the data means."
+        },
+        "predict": {
+          "title": "Predict",
+          "desc": "Forecast outcomes before they affect the flock."
+        },
+        "recommend": {
+          "title": "Recommend",
+          "desc": "Prescribe the highest-impact corrective action."
+        },
+        "automate": {
+          "title": "Automate",
+          "desc": "Execute approved actions through connected controllers."
+        },
+        "improve": {
+          "title": "Continuously improve",
+          "desc": "Every result retrains the model for the next cycle."
+        }
+      }
+    },
+    "architecture": {
+      "eyebrow": "Platform architecture",
+      "title": "An enterprise stack, not a point solution",
+      "subtitle": "Six layers working as one system — from the sensor in the house to the board report.",
+      "purposeLabel": "Purpose",
+      "valueLabel": "Business value",
+      "layers": {
+        "executive": {
+          "name": "Executive Layer",
+          "purpose": "Group-level visibility across every site and company.",
+          "value": "Faster strategic decisions with a single source of truth."
+        },
+        "bi": {
+          "name": "Business Intelligence",
+          "purpose": "Dashboards, benchmarking and automated reporting.",
+          "value": "Eliminates manual reporting cycles and reporting lag."
+        },
+        "operations": {
+          "name": "Operations Layer",
+          "purpose": "Cycle management, tasks, alerts and farm workflows.",
+          "value": "Standardised execution across every farm and team."
+        },
+        "ai": {
+          "name": "AI Layer",
+          "purpose": "Forecasting, anomaly detection and prescriptive engines.",
+          "value": "Problems are prevented instead of investigated."
+        },
+        "iot": {
+          "name": "IoT Layer",
+          "purpose": "Sensors, cameras, gateways and controller integration.",
+          "value": "Trusted real-time data without manual recording."
+        },
+        "infrastructure": {
+          "name": "Infrastructure Layer",
+          "purpose": "Secure cloud, identity, APIs and data governance.",
+          "value": "Enterprise-grade security, scale and compliance."
+        }
+      }
+    },
+    "connectivity": {
+      "eyebrow": "Farm connectivity",
+      "title": "Every asset connected, end to end",
+      "subtitle": "From the LoRaWAN sensor in house 12 to the executive dashboard — one connected fabric.",
+      "nodes": {
+        "sensors": {
+          "title": "Sensors",
+          "desc": "Climate, water, feed and weight"
+        },
+        "controllers": {
+          "title": "Controllers",
+          "desc": "Ventilation, cooling, feed lines"
+        },
+        "gateways": {
+          "title": "Gateways",
+          "desc": "Edge buffering and secure uplink"
+        },
+        "lorawan": {
+          "title": "LoRaWAN",
+          "desc": "Long-range low-power coverage"
+        },
+        "cloud": {
+          "title": "Cloud",
+          "desc": "Unified enterprise data model"
+        },
+        "ai": {
+          "title": "AI Services",
+          "desc": "Prediction and prescription"
+        },
+        "dashboards": {
+          "title": "Dashboards",
+          "desc": "Role-based operational views"
+        },
+        "erp": {
+          "title": "ERP",
+          "desc": "Cost, inventory and production sync"
+        },
+        "mobile": {
+          "title": "Mobile",
+          "desc": "Field execution and approvals"
+        },
+        "api": {
+          "title": "REST API",
+          "desc": "Open integration with any system"
+        }
+      }
+    },
+    "intelligence": {
+      "eyebrow": "Operational intelligence",
+      "title": "Decision-grade reporting out of the box",
+      "subtitle": "Power BI dashboards built for poultry operations — from live house telemetry to executive benchmarking.",
+      "highlights": {
+        "kpis": "Live operational KPIs",
+        "dashboards": "Role-based dashboards",
+        "forecasts": "Predictive forecasts",
+        "reports": "Executive reports",
+        "alerts": "Intelligent alerts",
+        "benchmarking": "Cross-site benchmarking",
+        "support": "Decision support"
+      },
+      "slides": {
+        "dashboard": {
+          "title": "Executive operations centre",
+          "alt": "Executive operations centre dashboard"
+        },
+        "farm": {
+          "title": "Farm overview",
+          "alt": "Farm overview dashboard with live alerts"
+        },
+        "environment": {
+          "title": "Environmental intelligence",
+          "alt": "Environmental monitoring and prediction chart"
+        },
+        "ai": {
+          "title": "AI insights",
+          "alt": "AI insights and growth performance dashboard"
+        },
+        "weight": {
+          "title": "Weight performance",
+          "alt": "Body weight records dashboard"
+        },
+        "cameras": {
+          "title": "Computer vision",
+          "alt": "Camera monitoring grid with AI analysis"
+        }
+      }
+    },
+    "outcomes": {
+      "eyebrow": "Business outcomes",
+      "title": "Measured where it matters — the P&L",
+      "subtitle": "Outcomes reported by enterprise poultry operations running Smart Poultry across their sites.",
+      "items": {
+        "feed": {
+          "value": "-12%",
+          "label": "Feed waste",
+          "desc": "Intake anomalies and line faults detected the same day."
+        },
+        "mortality": {
+          "value": "-27%",
+          "label": "Mortality",
+          "desc": "Health risk flagged days before visible symptoms."
+        },
+        "fcr": {
+          "value": "+8%",
+          "label": "Feed conversion",
+          "desc": "Continuous environment and feed optimisation per house."
+        },
+        "productivity": {
+          "value": "+21%",
+          "label": "Productivity",
+          "desc": "Teams act on ranked priorities instead of paperwork."
+        },
+        "visibility": {
+          "value": "100%",
+          "label": "Operational visibility",
+          "desc": "Every house, site and batch visible in real time."
+        },
+        "speed": {
+          "value": "10x",
+          "label": "Decision speed",
+          "desc": "Reporting lag replaced with live decision support."
+        },
+        "profit": {
+          "value": "+15%",
+          "label": "Profitability",
+          "desc": "Compounded gains across feed, health and yield."
+        }
+      }
+    },
+    "difference": {
+      "eyebrow": "Competitive differentiation",
+      "title": "Why Smart Poultry is different",
+      "subtitle": "Not another dashboard. A cognitive enterprise system.",
+      "legacy": {
+        "title": "Traditional poultry ERP",
+        "items": [
+          "Historical records",
+          "Manual data entry",
+          "Disconnected systems",
+          "Reactive response",
+          "Static reporting"
+        ]
+      },
+      "smart": {
+        "title": "Smart Poultry",
+        "items": [
+          "Connected by design",
+          "Predictive by default",
+          "Prescriptive guidance",
+          "Autonomous execution",
+          "Self-learning models"
+        ]
+      }
+    },
+    "integrations": {
+      "eyebrow": "Enterprise integrations",
+      "title": "Fits the systems you already run",
+      "subtitle": "Open, standards-based integration across your enterprise landscape.",
+      "items": {
+        "erp": {
+          "title": "ERP",
+          "desc": "Bi-directional sync of cost, inventory and production."
+        },
+        "bi": {
+          "title": "Power BI",
+          "desc": "Native datasets and governed executive reporting."
+        },
+        "api": {
+          "title": "REST APIs",
+          "desc": "Documented endpoints for any internal system."
+        },
+        "lorawan": {
+          "title": "LoRaWAN",
+          "desc": "Long-range connectivity across remote sites."
+        },
+        "email": {
+          "title": "Email",
+          "desc": "Scheduled reports and escalation notices."
+        },
+        "sms": {
+          "title": "SMS",
+          "desc": "Critical alerts delivered without connectivity."
+        },
+        "whatsapp": {
+          "title": "WhatsApp",
+          "desc": "Field alerts and approvals where teams already work."
+        },
+        "cloud": {
+          "title": "Cloud",
+          "desc": "Secure, scalable enterprise cloud deployment."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to transform every poultry decision?",
+      "subtitle": "Start with a guided enterprise pilot on a single site and scale across your group with proven results.",
+      "primary": "Book Enterprise Pilot",
+      "secondary": "Request Demo"
     }
   }
 }

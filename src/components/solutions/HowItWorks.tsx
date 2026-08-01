@@ -43,7 +43,7 @@ export function HowItWorks() {
             aria-hidden
             className="pointer-events-none absolute inset-x-0 top-8 hidden h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent lg:block"
           />
-          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {STEPS.map((step, i) => {
               const Icon = step.icon;
               return (
@@ -66,7 +66,7 @@ export function HowItWorks() {
                     {i < STEPS.length - 1 ? (
                       <ChevronRight
                         aria-hidden
-                        className="absolute top-1/2 hidden h-5 w-5 -translate-y-1/2 text-brand/35 xl:block ltr:-right-4 rtl:-left-4 rtl:rotate-180"
+                        className="absolute top-1/2 hidden h-5 w-5 -translate-y-1/2 text-brand/35 lg:block ltr:-right-4 rtl:-left-4 rtl:rotate-180"
                       />
                     ) : null}
                   </li>

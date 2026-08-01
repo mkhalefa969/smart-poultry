@@ -21,6 +21,9 @@ import {
 } from "lucide-react";
 import heroIllustration from "@/assets/hero-illustration.png";
 
+// 1️⃣ استيراد مكون النافذة المنبثقة الجديد (تأكد من ضبط المسار حسب مجلد المشروع لديك)
+import { DemoModal } from "./DemoModal";
+
 type FloatCardProps = {
   label: string;
   value: string;
@@ -137,6 +140,9 @@ export function Hero() {
   const { t, i18n } = useTranslation();
   const isAr = i18n.language === "ar"; // فحص هل اللغة الحالية عربية
 
+  // 2️⃣ إضافة حالة للتحكم بالـ Popup (إظهار/إخفاء)
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
   const wrapRef = useRef<HTMLDivElement>(null);
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
@@ -218,13 +224,15 @@ export function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#cta"
+            {/* 3️⃣ تعديل زر "Request a Demo" ليفتح الـ Popup عند الضغط */}
+            <button
+              onClick={() => setIsDemoOpen(true)}
               className="group inline-flex items-center gap-2 rounded-full bg-highlight px-6 py-3.5 text-sm font-semibold text-brand-deep shadow-elevated transition-all hover:scale-[1.03] hover:shadow-glow"
             >
               {t("hero.ctaDemo")}
               <ArrowRight className="h-4 w-4 transition-transform rtl:rotate-180 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" />
-            </a>
+            </button>
+
             <a
               href="#power-bi"
               className="group inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-5 py-3.5 text-sm font-semibold text-white backdrop-blur transition-all hover:scale-[1.02] hover:bg-white/10"
@@ -333,6 +341,9 @@ export function Hero() {
       <svg className="absolute inset-x-0 bottom-0 w-full text-background" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden>
         <path fill="currentColor" d="M0,80 L0,32 C240,80 480,0 720,16 C960,32 1200,80 1440,40 L1440,80 Z" />
       </svg>
+
+      {/* 4️⃣ إدراج مكون النافذة المنبثقة هنا */}
+      <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </section>
   );
 }

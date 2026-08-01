@@ -43,6 +43,25 @@
     },
     "imageAlt": "Smart Poultry connected farm house with floating KPI cards showing temperature, water, bird weight, feed intake, AI and FCR"
   },
+    "demoModal": {
+    "title": "Request a Demo",
+    "subtitle": "Please fill in the details below and we will schedule a demo for you.",
+    "fullName": "Full Name *",
+    "fullNamePlaceholder": "Enter your full name",
+    "company": "Company / Farm Name *",
+    "companyPlaceholder": "Enter company name",
+    "phone": "Phone Number *",
+    "phonePlaceholder": "+1 234 567 890",
+    "email": "Email Address *",
+    "emailPlaceholder": "name@company.com",
+    "notes": "Additional Notes (Optional)",
+    "notesPlaceholder": "Any specific requirements or notes...",
+    "submit": "Submit Request",
+    "sending": "Sending...",
+    "successTitle": "Request Sent Successfully!",
+    "successDesc": "Thank you for reaching out. Our team will contact you shortly.",
+    "close": "Close"
+  },
   "trustedBy": {
     "heading": "Trusted by integrators & producers across the region"
   },

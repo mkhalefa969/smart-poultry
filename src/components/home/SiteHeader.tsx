@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@tanstack/react-router"; // 1️⃣ استيراد Link للتنقل
 import logo from "../../assets/logo.png.png";
 import { useLanguage } from "@/i18n/useLanguage";
 
@@ -21,12 +22,13 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // 2️⃣ تعديل المسارات: توجيه الرئيسية والـ Hash إلى "/" وتحديد الـ Hash بشكل منفصل
   const nav = [
-    { label: t("header.home"), href: "#top" },
-    { label: t("header.solutions"), href: "#solutions" },
-    { label: t("header.caseStudies"), href: "#casestudies" },
-    { label: t("header.pricing"), href: "#pricing" },
-    { label: t("header.contact"), href: "#contact" },
+    { label: t("header.home"), to: "/", hash: "top" },
+    { label: t("header.solutions"), to: "/solutions" },
+    { label: t("header.caseStudies"), to: "/", hash: "casestudies" },
+    { label: t("header.pricing"), to: "/", hash: "pricing" },
+    { label: t("header.contact"), to: "/", hash: "contact" },
   ];
 
   return (
@@ -40,20 +42,21 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <a href="#top" className="flex items-center">
+          <Link to="/" hash="top" className="flex items-center">
             <img
               src={logo}
               alt="Smart Poultry"
               className="h-12 w-auto transition-all duration-300"
             />
-          </a>
+          </Link>
 
           {/* Navigation */}
           <nav className="hidden items-center gap-8 md:flex">
             {nav.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.to}
+                hash={item.hash}
                 className={`text-sm font-medium transition-colors ${
                   scrolled
                     ? "text-foreground/70 hover:text-brand"
@@ -61,7 +64,7 @@ export function SiteHeader() {
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
